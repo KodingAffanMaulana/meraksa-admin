@@ -1,6 +1,7 @@
 // import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
 import { useEffect, useState } from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
+import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 
 const ProfileSekolah = () => {
   const [profil, setProfil] = useState('');
@@ -34,13 +35,20 @@ const ProfileSekolah = () => {
   }, [id]);
 
   const handleSubmit = (e: any) => {
+    setLoading(true)
     e.preventDefault();
     const token = localStorage.getItem('token');
+
+    if (!token) {
+      alert('Session expired. Please log in again.');
+      window.location.href = '/login'; // Redirect to login page if no token
+      return;
+    }
 
     const requestBody = {
       profil: profil,
       visi: visi,
-      misi: misi
+      misi: misi,
     };
 
     fetch(`${import.meta.env.VITE_BASE_URL}/api/information/${id}`, {
@@ -51,20 +59,24 @@ const ProfileSekolah = () => {
       },
       body: JSON.stringify(requestBody),
     })
+      .then(checkTokenExpiration) // Check if token is expired or invalid
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 200) {
           alert('Profil sekolah berhasil diperbarui!');
+          setLoading(false);
         } else {
           alert('Terjadi kesalahan saat memperbarui profil sekolah.');
+          setLoading(false);
         }
       })
       .catch((error) => {
-        console.error('Error updating data:', error);
+        console.error('Error updating data:', error.message);
         alert('Terjadi kesalahan saat memperbarui profil sekolah.');
+        setLoading(false);
       });
+    setLoading(false);
   };
-
 
   if (loading) return <div>Loading...</div>;
 

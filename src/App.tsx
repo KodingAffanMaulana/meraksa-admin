@@ -7,6 +7,7 @@ import PrivateRoute from '../src/components/PrivateRoute/PrivateRoute'; // Impor
 import authRoutes from './routes/auth';
 import privateRoutes from './routes';
 import AuthLayout from './layout/AuthLayout';
+import NotFound from './components/NotFound';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -57,6 +58,7 @@ function App() {
           }
         />
       ))}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

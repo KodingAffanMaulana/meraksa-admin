@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ClickOutside from '../ClickOutside';
 import UserOne from '../../images/user/user-01.png';
 
@@ -7,9 +7,22 @@ const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [data, setData] = useState<any>(null);
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Hapus item dari localStorage
+    localStorage.removeItem('data');
+    localStorage.removeItem('token');
+
+    navigate('/auth/signin', { replace: true });
+
+    // Reload halaman setelah navigasi
+    window.location.reload();
+  };
+
+
   useEffect(() => {
     const storedData = localStorage.getItem('data');
-    console.log(storedData);
 
     if (storedData) {
       try {
@@ -92,7 +105,7 @@ const DropdownUser = () => {
               </Link>
             </li>
           </ul>
-          <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+          <button onClick={handleLogout} className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
             <svg
               className="fill-current"
               width="22"

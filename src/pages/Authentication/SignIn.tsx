@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
 
@@ -12,8 +11,6 @@ const SignIn: React.FC = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(import.meta.env.VITE_BASE_URL);
-
     try {
       const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/login`, {
         method: 'POST',
@@ -27,7 +24,7 @@ const SignIn: React.FC = () => {
         const data = await response.json();
         localStorage.setItem('token', data.data.token);
         localStorage.setItem('data', JSON.stringify(data?.data?.user));
-        navigate('/'); // Redirect ke halaman dashboard atau halaman lain setelah login
+        navigate('/');
       } else {
         const message = await response.json();
         setError(message.error || 'Login failed');
@@ -41,8 +38,7 @@ const SignIn: React.FC = () => {
 
   return (
     <>
-      <Breadcrumb pageName="Sign In" />
-
+      {/* <Breadcrumb pageName="Sign In" /> */}
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
@@ -53,12 +49,10 @@ const SignIn: React.FC = () => {
               </Link>
 
               <p className="2xl:px-20">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                suspendisse.
+                Dashboard Admin Website SMAN 1 Meraksa Aji
               </p>
 
               <span className="mt-15 inline-block">
-                {/* SVG Illustration */}
               </span>
             </div>
           </div>
@@ -109,21 +103,20 @@ const SignIn: React.FC = () => {
                   />
                 </div>
 
-                <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+                {/* <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
                   <span>
-                    {/* Google Icon */}
                   </span>
                   Sign in with Google
-                </button>
+                </button> */}
 
-                <div className="mt-6 text-center">
+                {/* <div className="mt-6 text-center">
                   <p>
                     Don’t have any account?{' '}
                     <Link to="/auth/signup" className="text-primary">
                       Sign Up
                     </Link>
                   </p>
-                </div>
+                </div> */}
               </form>
             </div>
           </div>
