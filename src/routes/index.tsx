@@ -9,6 +9,7 @@ import Alerts from '../pages/UiElements/Alerts';
 import Buttons from '../pages/UiElements/Buttons';
 import ProfileSekolah from '../pages/ProfileSekolah';
 import DashboardAdmin from '../pages/Dashboard';
+import Sejarah from '../pages/Sejarah';
 // const SignIn = lazy(() => import('./pages/Authentication/SignIn'));
 // const SignUp = lazy(() => import('./pages/Authentication/SignUp'));
 // const Calendar = lazy(() => import('./pages/Calendar'));
@@ -32,6 +33,11 @@ const coreRoutes = [
     path: '/profile-sekolah',
     title: 'Profile Sekolah',
     component: ProfileSekolah,
+  },
+  {
+    path: '/sejarah',
+    title: 'Sejarah',
+    component: Sejarah,
   },
   {
     path: '/calendar',

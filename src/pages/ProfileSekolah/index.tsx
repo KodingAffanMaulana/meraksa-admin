@@ -1,6 +1,7 @@
-// import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
-import { useEffect, useState } from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
+import { useEffect, useState } from 'react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 
 const ProfileSekolah = () => {
@@ -41,7 +42,7 @@ const ProfileSekolah = () => {
 
     if (!token) {
       alert('Session expired. Please log in again.');
-      window.location.href = '/login'; // Redirect to login page if no token
+      window.location.href = '/login';
       return;
     }
 
@@ -59,7 +60,7 @@ const ProfileSekolah = () => {
       },
       body: JSON.stringify(requestBody),
     })
-      .then(checkTokenExpiration) // Check if token is expired or invalid
+      .then(checkTokenExpiration)
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 200) {
@@ -82,35 +83,57 @@ const ProfileSekolah = () => {
 
   return (
     <>
-      <Breadcrumb pageName="Profil Sekolah" />
-      <div className="max-w-2xl mx-auto">
+      <Breadcrumb pageName="DATA PROFIL SMAN 1 MERAKSA AJI" />
+      <div className="max-w-6xl mx-auto">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2">Profil Sekolah</label>
-            <input
-              type="text"
-              value={profil}
-              onChange={(e) => setProfil(e.target.value)}
-              className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white"
+            <label className="block text-black dark:text-white mb-2 font-semibold">Profil Sekolah</label>
+            <CKEditor
+              editor={ClassicEditor}
+              data={profil}
+              config={{
+                toolbar: [
+                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                ],
+              }}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                setProfil(data);
+              }}
+            />
+
+          </div>
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Visi Sekolah</label>
+            <CKEditor
+              editor={ClassicEditor}
+              data={visi}
+              config={{
+                toolbar: [
+                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                ],
+              }}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                setVisi(data);
+              }}
             />
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2">Visi Sekolah</label>
-            <input
-              type="text"
-              value={visi}
-              onChange={(e) => setVisi(e.target.value)}
-              className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white"
+            <label className="block text-black dark:text-white mb-2 font-semibold">Misi Sekolah</label>
+            <CKEditor
+              editor={ClassicEditor}
+              data={misi}
+              config={{
+                toolbar: [
+                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                ],
+              }}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                setMisi(data);
+              }}
             />
-          </div>
-          <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2">Misi Sekolah</label>
-            <textarea
-              value={misi}
-              onChange={(e) => setMisi(e.target.value)}
-              rows={4}
-              className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white"
-            ></textarea>
           </div>
           <button
             type="submit"
@@ -119,6 +142,7 @@ const ProfileSekolah = () => {
             Update Profil Sekolah
           </button>
         </form>
+        {/* <div dangerouslySetInnerHTML={{ __html: profil }} /> */}
       </div>
     </>
   );
