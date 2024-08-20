@@ -88,7 +88,10 @@ const EditAlumni = () => {
   if (loading) return <div>Loading...</div>;
   return (
     <>
-      <Link to="/alumni" className='rounded-lg border text-white py-2 px-3 bg-blue-500'>Kembali</Link>
+      <div>
+        <Link to="/alumni" className='rounded-lg border text-white py-2 px-3 bg-blue-500'>Kembali</Link>
+        <div className='flex justify-center text-2xl font-bold'>Edit Data Alumni Siswa</div>
+      </div>
       <div className="max-w-6xl mx-auto pt-5">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

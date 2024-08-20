@@ -32,6 +32,10 @@ export const sidebarItems = [
     route: '/prestasi',
     name: 'Prestasi',
     icon: ImageProfileIcon,
+  }, {
+    route: '/kepala-sekolah',
+    name: 'Kepala Sekolah',
+    icon: ImageProfileIcon,
   },
   // Tambahkan lebih banyak item jika perlu
 ];

@@ -24,6 +24,9 @@ import EditProgramKerja from '../pages/Program Kerja/Edit';
 import CreateProgramKerja from '../pages/Program Kerja/Tambah';
 import Prestasi from '../pages/Prestasi';
 import EditPrestasi from '../pages/Prestasi/Edit';
+import KepalaSekolah from '../pages/Kepala Sekolah';
+import CreateKepalaSekolah from '../pages/Kepala Sekolah/Tambah';
+import EditKepalaSekolah from '../pages/Kepala Sekolah/Edit';
 // const SignIn = lazy(() => import('./pages/Authentication/SignIn'));
 // const SignUp = lazy(() => import('./pages/Authentication/SignUp'));
 // const Calendar = lazy(() => import('./pages/Calendar'));
@@ -125,6 +128,21 @@ const coreRoutes = [
     path: '/prestasi/tambah',
     title: 'Prestasi',
     component: CreateProgramKerja,
+  },
+  {
+    path: '/kepala-sekolah',
+    title: 'Kepala Sekolah',
+    component: KepalaSekolah,
+  },
+  {
+    path: '/kepala-sekolah/:id',
+    title: 'Kepala Sekolah',
+    component: EditKepalaSekolah,
+  },
+  {
+    path: '/kepala-sekolah/tambah',
+    title: 'Kepala Sekolah',
+    component: CreateKepalaSekolah,
   },
   {
     path: '/calendar',
