@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import LogoDark from '../../images/logo/logo-dark.svg';
-import Logo from '../../images/logo/logo.svg';
+import LogoDark from '../../images/287111727_35017111-0211-4f6e-b225-1a3b2407cd01.jpg';
+import Logo from '../../images/287111727_35017111-0211-4f6e-b225-1a3b2407cd01.jpg';
 
 const SignIn: React.FC = () => {
   const [username, setUsername] = useState<string>('');
@@ -72,7 +72,7 @@ const SignIn: React.FC = () => {
                   <div className="relative">
                     <input
                       type="text"
-                      placeholder="Enter your username"
+                      placeholder="Masukkan username"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
@@ -87,7 +87,7 @@ const SignIn: React.FC = () => {
                   <div className="relative">
                     <input
                       type="password"
-                      placeholder="6+ Characters, 1 Capital letter"
+                      placeholder="Masukkan password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"

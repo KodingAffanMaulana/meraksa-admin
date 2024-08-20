@@ -2,7 +2,7 @@ import React, { useState, ReactNode } from 'react';
 
 const AuthLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <div className="dark:bg-boxdark-2 dark:text-bodydark">
+    <div className="dark:bg-boxdark-2 dark:text-bodydark bg-blue-200">
       {/* <!-- ===== Page Wrapper Start ===== --> */}
       <div className="flex h-screen overflow-hidden">
         {/* <!-- ===== Sidebar Start ===== --> */}
@@ -15,7 +15,7 @@ const AuthLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
           {/* <!-- ===== Main Content Start ===== --> */}
           <main>
-            <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <div className="mx-auto max-w-screen-2xl p-3 md:p-3 2xl:p-8">
               {children}
             </div>
           </main>

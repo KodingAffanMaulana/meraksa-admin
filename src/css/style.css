@@ -7,7 +7,6 @@
     @apply font-satoshi font-normal text-base text-body bg-whiten relative z-1;
   }
 }
-
 @layer components {
 }
 
@@ -32,12 +31,12 @@
 
 /* third-party libraries CSS */
 
-.tableCheckbox:checked ~ div span {
+/* .tableCheckbox:checked ~ div span {
   @apply opacity-100;
 }
 .tableCheckbox:checked ~ div {
   @apply bg-primary border-primary;
-}
+} */
 
 .apexcharts-legend-text {
   @apply !text-body dark:!text-bodydark;

@@ -1,37 +1,13 @@
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Link, useNavigate } from 'react-router-dom';
 
-
-const Sejarah = () => {
+const PostSaranaPrasarana = () => {
   const [konten, setKonten] = useState('');
   const [image, setImage] = useState<any>(null);
-  const [id, setId] = useState('');
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    fetch(`${import.meta.env.VITE_BASE_URL}/api/sejarah`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === 200) {
-          setKonten(data.data.text);
-          setImage(data.data.image);
-          setId(data.data.id);
-          setLoading(false);
-        }
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      });
-  }, [id]);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleFileChange = (e: any) => {
     setImage(e.target.files[0]);
@@ -49,13 +25,13 @@ const Sejarah = () => {
     }
 
     const formData = new FormData();
-    formData.append('text', konten);
+    formData.append('konten', konten);
     if (image instanceof File) {
       formData.append('image', image);
     }
 
-    fetch(`${import.meta.env.VITE_BASE_URL}/api/sejarah/${id}`, {
-      method: 'PUT',
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/sarana-prasarana`, {
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -63,28 +39,28 @@ const Sejarah = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === 200) {
-          alert('Sejarah berhasil diperbarui!');
+        if (data.status === 201) {
+          alert('Sarana-prasarana berhasil ditambahkan!');
+          navigate('/sarana-prasarana')
         } else {
-          alert('Terjadi kesalahan saat memperbarui Sejarah.');
+          alert('Terjadi kesalahan saat menambahkan Sarana Prasarana');
         }
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error updating data:', error.message);
-        alert('Terjadi kesalahan saat memperbarui Sejarah.');
+        console.error('Error posting data:', error.message);
+        alert('Terjadi kesalahan saat menambahkan Sarana Prasarana.');
         setLoading(false);
       });
   };
 
-  if (loading) return <div>Loading...</div>;
   return (
     <>
-      <Breadcrumb pageName="DATA PROFIL SMAN 1 MERAKSA AJI" />
-      <div className="max-w-6xl mx-auto">
+      <Link to="/sarana-prasarana" className='rounded-lg border text-white py-2 px-3 bg-blue-500'>Kembali</Link>
+      <div className="max-w-6xl mx-auto pt-5">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Edit Gambar</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">Tambah Sarana dan Prasarana</label>
             <div
               id="FileUpload"
               className="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5"
@@ -98,9 +74,9 @@ const Sejarah = () => {
               <div className="flex flex-col items-center justify-center space-y-3">
                 {image && (
                   typeof image === 'string' ? (
-                    <img src={image} alt="Sejarah Image" className="mb-4 max-h-40" />
+                    <img src={image} alt="Sarana Prasarana Image" className="mb-4 max-h-40" />
                   ) : (
-                    <img src={URL.createObjectURL(image)} alt="Sejarah Image" className="mb-4 max-h-40" />
+                    <img src={URL.createObjectURL(image)} alt="Sarana Prasarana Image" className="mb-4 max-h-40" />
                   )
                 )}
                 <p>
@@ -111,7 +87,7 @@ const Sejarah = () => {
             </div>
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Edit Konten Sejarah</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">Tambah Konten Sarana Prasarana</label>
             <div className="reset-tw">
               <CKEditor
                 editor={ClassicEditor}
@@ -120,7 +96,6 @@ const Sejarah = () => {
                   ckfinder: {
                     uploadUrl: `${import.meta.env.VITE_BASE_URL}/api/upload-image`,
                   },
-
                 }}
                 onChange={(event, editor) => {
                   const data = editor.getData();
@@ -133,16 +108,12 @@ const Sejarah = () => {
             type="submit"
             className="w-full py-3 px-6 rounded bg-primary text-white hover:bg-opacity-90 transition duration-300"
           >
-            Update Sejarah
+            Tambah Sarana Prasarana
           </button>
         </form>
-        <div
-          className=""
-          dangerouslySetInnerHTML={{ __html: konten }}
-        />
       </div>
     </>
   );
 };
 
-export default Sejarah;
+export default PostSaranaPrasarana;

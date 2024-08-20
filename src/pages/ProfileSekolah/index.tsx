@@ -8,6 +8,7 @@ const ProfileSekolah = () => {
   const [profil, setProfil] = useState('');
   const [visi, setVisi] = useState('');
   const [misi, setMisi] = useState('');
+  const [sambutan, setSambutan] = useState('');
   const [id, setId] = useState('');
   const [loading, setLoading] = useState(true);
 
@@ -26,6 +27,7 @@ const ProfileSekolah = () => {
           setVisi(data.data.visi);
           setMisi(data.data.misi);
           setId(data.data.id);
+          setSambutan(data.data.sambutan);
           setLoading(false);
         }
       })
@@ -50,6 +52,7 @@ const ProfileSekolah = () => {
       profil: profil,
       visi: visi,
       misi: misi,
+      sambutan: sambutan,
     };
 
     fetch(`${import.meta.env.VITE_BASE_URL}/api/information/${id}`, {
@@ -84,7 +87,7 @@ const ProfileSekolah = () => {
   return (
     <>
       <Breadcrumb pageName="DATA PROFIL SMAN 1 MERAKSA AJI" />
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto reset-tw">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">Profil Sekolah</label>
@@ -132,6 +135,22 @@ const ProfileSekolah = () => {
               onChange={(event, editor) => {
                 const data = editor.getData();
                 setMisi(data);
+              }}
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Sambutan Kepala Sekolah</label>
+            <CKEditor
+              editor={ClassicEditor}
+              data={sambutan}
+              config={{
+                toolbar: [
+                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                ],
+              }}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                setSambutan(data);
               }}
             />
           </div>
