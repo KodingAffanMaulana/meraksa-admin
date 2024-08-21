@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import { checkTokenExpiration } from '../../common/checkTokenExpiration';
+import Loader from '../../common/Loader';
 
 const EditKepalaSekolah = () => {
   const [title, setTitle] = useState('');
@@ -87,7 +88,7 @@ const EditKepalaSekolah = () => {
       });
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loader />;
 
   return (
     <>

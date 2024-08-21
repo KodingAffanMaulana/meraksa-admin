@@ -27,6 +27,16 @@ import EditPrestasi from '../pages/Prestasi/Edit';
 import KepalaSekolah from '../pages/Kepala Sekolah';
 import CreateKepalaSekolah from '../pages/Kepala Sekolah/Tambah';
 import EditKepalaSekolah from '../pages/Kepala Sekolah/Edit';
+import KomiteSekolah from '../pages/Komite Sekolah';
+import EkstrakurikulerTable from '../pages/Extrakurikuler';
+import TambahEkstrakurikuler from '../pages/Extrakurikuler/Tambah';
+import EditEkstrakurikuler from '../pages/Extrakurikuler/Edit';
+import SiswaTable from '../pages/Direktori Siswa';
+import PostSiswa from '../pages/Direktori Siswa/Tambah';
+import EditSiswa from '../pages/Direktori Siswa/Edit';
+import NewsTable from '../pages/Berita';
+import EditNews from '../pages/Berita/Edit';
+import PostNews from '../pages/Berita/Tambah';
 // const SignIn = lazy(() => import('./pages/Authentication/SignIn'));
 // const SignUp = lazy(() => import('./pages/Authentication/SignUp'));
 // const Calendar = lazy(() => import('./pages/Calendar'));
@@ -143,6 +153,56 @@ const coreRoutes = [
     path: '/kepala-sekolah/tambah',
     title: 'Kepala Sekolah',
     component: CreateKepalaSekolah,
+  },
+  {
+    path: '/komite-sekolah',
+    name: 'Komite Sekolah',
+    component: KomiteSekolah,
+  },
+  {
+    path: '/ekstrakurikuler',
+    title: 'Ekstrakurikuler',
+    component: EkstrakurikulerTable,
+  },
+  {
+    path: '/ekstrakurikuler/:id',
+    title: 'Ekstrakurikuler',
+    component: EditEkstrakurikuler,
+  },
+  {
+    path: '/ekstrakurikuler/tambah',
+    title: 'Ekstrakurikuler',
+    component: TambahEkstrakurikuler,
+  },
+  {
+    path: '/siswa',
+    title: 'Direktori Siswa',
+    component: SiswaTable,
+  },
+  {
+    path: '/siswa/:id',
+    title: 'Direktori Siswa',
+    component: EditSiswa,
+  },
+  {
+    path: '/siswa/tambah',
+    title: 'Direktori Siswa',
+    component: PostSiswa,
+  },
+  {
+    path: '/news',
+    title: 'Berita dan Artikel',
+    component: NewsTable,
+  },
+  {
+    path: '/news/:id',
+    title: 'Berita dan Artikel',
+    component: EditNews,
+  },
+  {
+    path: '/news/tambah',
+    title: 'Berita dan Artikel',
+    component: PostNews,
   },
   {
     path: '/calendar',

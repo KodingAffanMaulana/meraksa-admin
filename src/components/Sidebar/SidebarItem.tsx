@@ -36,6 +36,22 @@ export const sidebarItems = [
     route: '/kepala-sekolah',
     name: 'Kepala Sekolah',
     icon: ImageProfileIcon,
+  }, {
+    route: '/komite-sekolah',
+    name: 'Komite Sekolah',
+    icon: ImageProfileIcon,
+  }, {
+    route: '/ekstrakurikuler',
+    name: 'Ekstrakurikuler',
+    icon: ImageProfileIcon,
+  }, {
+    route: '/siswa',
+    name: 'Direktori Siswa',
+    icon: ImageProfileIcon,
+  }, {
+    route: '/news',
+    name: 'Berita dan Artikel',
+    icon: ImageProfileIcon,
   },
   // Tambahkan lebih banyak item jika perlu
 ];

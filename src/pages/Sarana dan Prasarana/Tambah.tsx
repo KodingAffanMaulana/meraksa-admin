@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Link, useNavigate } from 'react-router-dom';
+import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 
 const PostSaranaPrasarana = () => {
   const [konten, setKonten] = useState('');
@@ -37,6 +38,7 @@ const PostSaranaPrasarana = () => {
       },
       body: formData,
     })
+      .then(checkTokenExpiration)
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 201) {

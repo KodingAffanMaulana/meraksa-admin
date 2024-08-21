@@ -1,25 +1,45 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 import Loader from '../../common/Loader';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-const CreateKepalaSekolah = () => {
-  const [title, setTitle] = useState('');
-  const [tahunMemimpin, setTahunMemimpin] = useState('');
+const KomiteSekolah = () => {
   const [image, setImage] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const [description, setDescription] = useState('');
+  const [id, setId] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/komite-sekolah`, {
+      method: 'GET',
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 200) {
+          setImage(data.data.image);
+          setDescription(data.data.description);
+          setId(data.data.id);
+          setLoading(false);
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      });
+  }, [id]);
 
   const handleFileChange = (e: any) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    setImage(file);
   };
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
     setLoading(true);
-
+    e.preventDefault();
     const token = localStorage.getItem('token');
+
     if (!token) {
       alert('Session expired. Please log in again.');
       window.location.href = '/login';
@@ -27,14 +47,13 @@ const CreateKepalaSekolah = () => {
     }
 
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('tahunMemimpin', tahunMemimpin);
     if (image instanceof File) {
       formData.append('image', image);
     }
+    formData.append('description', description);
 
-    fetch(`${import.meta.env.VITE_BASE_URL}/api/kepala-sekolah`, {
-      method: 'POST',
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/komite-sekolah/${id}`, {
+      method: 'PUT',
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -43,48 +62,27 @@ const CreateKepalaSekolah = () => {
       .then(checkTokenExpiration)
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === 201) {
-          alert('Kepala Sekolah berhasil ditambahkan!');
-          navigate('/kepala-sekolah');
+        if (data.status === 200) {
+          alert('Data Komite Sekolah berhasil diperbarui!');
         } else {
-          alert('Terjadi kesalahan saat menambahkan Kepala Sekolah.');
+          alert('Terjadi kesalahan saat memperbarui data Komite Sekolah.');
         }
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error creating data:', error.message);
-        alert('Terjadi kesalahan saat menambahkan Kepala Sekolah.');
+        console.error('Error updating data:', error.message);
+        alert('Terjadi kesalahan saat memperbarui data Komite Sekolah.');
         setLoading(false);
       });
   };
 
+  if (loading) return <Loader />;
+
   return (
     <>
-      <Breadcrumb pageName="Tambah Kepala Sekolah" />
-      <div className="max-w-6xl mx-auto reset-tw">
+      <Breadcrumb pageName="Komite Sekolah" />
+      <div className="max-w-6xl mx-auto">
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Nama Kepala Sekolah</label>
-            <input
-              type="text"
-              required
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="w-full p-2 border rounded"
-              placeholder="Masukkan Nama Kepala Sekolah"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Tahun Memimpin</label>
-            <input
-              type="text"
-              required
-              value={tahunMemimpin}
-              onChange={(e) => setTahunMemimpin(e.target.value)}
-              className="w-full p-2 border rounded"
-              placeholder="Masukkan Tahun Memimpin"
-            />
-          </div>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">Gambar</label>
             <div
@@ -100,9 +98,9 @@ const CreateKepalaSekolah = () => {
               <div className="flex flex-col items-center justify-center space-y-3">
                 {image && (
                   typeof image === 'string' ? (
-                    <img src={image} alt="Kepala Sekolah Image" className="mb-4 max-h-40" />
+                    <img src={image} alt="Komite Image" className="mb-4 max-h-40" />
                   ) : (
-                    <img src={URL.createObjectURL(image)} alt="Kepala Sekolah Image" className="mb-4 max-h-40" />
+                    <img src={URL.createObjectURL(image)} alt="Komite Image" className="mb-4 max-h-40" />
                   )
                 )}
                 <p>
@@ -112,6 +110,22 @@ const CreateKepalaSekolah = () => {
               </div>
             </div>
           </div>
+          <div className="mb-4 reset-tw">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Deskripsi</label>
+            <CKEditor
+              editor={ClassicEditor}
+              data={description}
+              config={{
+                ckfinder: {
+                  uploadUrl: `${import.meta.env.VITE_BASE_URL}/api/upload-image`,
+                },
+              }}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                setDescription(data);
+              }}
+            />
+          </div>
           <button
             type="submit"
             className="w-full py-3 px-6 rounded bg-primary text-white hover:bg-opacity-90 transition duration-300"
@@ -120,10 +134,10 @@ const CreateKepalaSekolah = () => {
             {loading ? (
               <div className="flex items-center justify-center">
                 <div className="spinner-border animate-spin inline-block w-4 h-4 border-2 border-t-transparent border-white rounded-full mr-2"></div>
-                Loading...
+                Updating...
               </div>
             ) : (
-              'Tambah Kepala Sekolah'
+              'Update Komite Sekolah'
             )}
           </button>
         </form>
@@ -132,4 +146,4 @@ const CreateKepalaSekolah = () => {
   );
 };
 
-export default CreateKepalaSekolah;
+export default KomiteSekolah;
