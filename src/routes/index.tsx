@@ -37,6 +37,13 @@ import EditSiswa from '../pages/Direktori Siswa/Edit';
 import NewsTable from '../pages/Berita';
 import EditNews from '../pages/Berita/Edit';
 import PostNews from '../pages/Berita/Tambah';
+import KalenderAkademikTable from '../pages/Kalender Akademik';
+import CreateKalenderAkademik from '../pages/Kalender Akademik/Tambah';
+import EditKalenderAkademik from '../pages/Kalender Akademik/Edit';
+import KondisiSiswa from '../pages/Kondisi Siswa';
+import SilabusTable from '../pages/Silabus';
+import CreateSilabus from '../pages/Silabus/Tambah';
+import EditSilabus from '../pages/Silabus/Edit';
 // const SignIn = lazy(() => import('./pages/Authentication/SignIn'));
 // const SignUp = lazy(() => import('./pages/Authentication/SignUp'));
 // const Calendar = lazy(() => import('./pages/Calendar'));
@@ -205,6 +212,34 @@ const coreRoutes = [
     component: PostNews,
   },
   {
+    path: '/kalender',
+    title: 'Kalender Akademik',
+    component: KalenderAkademikTable,
+  }, {
+    path: '/kalender/:id',
+    title: 'Kalender Akademik',
+    component: EditKalenderAkademik,
+  }, {
+    path: '/kalender/tambah',
+    title: 'Kalender Akademik',
+    component: CreateKalenderAkademik,
+  }, {
+    path: '/silabus',
+    title: 'Silabus dan Materi Ajar',
+    component: SilabusTable,
+  }, {
+    path: '/silabus/:id',
+    title: 'Silabus dan Materi Ajar',
+    component: EditSilabus,
+  }, {
+    path: '/silabus/tambah',
+    title: 'Silabus dan Materi Ajar',
+    component: CreateSilabus,
+  }, {
+    path: '/kondisi-siswa',
+    title: 'Kondisi Siswa',
+    component: KondisiSiswa,
+  }, {
     path: '/calendar',
     title: 'Calendar',
     component: Calendar,

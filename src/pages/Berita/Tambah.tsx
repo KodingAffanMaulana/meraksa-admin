@@ -19,7 +19,7 @@ const PostNews = () => {
 
   useEffect(() => {
     const now = new Date();
-    const formattedDate = now.toISOString().slice(0, 16); // Format to "YYYY-MM-DDTHH:MM"
+    const formattedDate = now.toISOString().slice(0, 16);
     setPublishAt(formattedDate);
   }, []);
 

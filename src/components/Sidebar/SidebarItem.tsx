@@ -52,6 +52,18 @@ export const sidebarItems = [
     route: '/news',
     name: 'Berita dan Artikel',
     icon: ImageProfileIcon,
+  }, {
+    route: '/kalender',
+    name: 'Kalender Akademik',
+    icon: ImageProfileIcon,
+  }, {
+    route: '/kondisi-siswa',
+    name: 'Kondisi Siswa',
+    icon: ImageProfileIcon,
+  }, {
+    route: '/silabus',
+    name: 'Silabus dan Materi Ajar',
+    icon: ImageProfileIcon,
   },
   // Tambahkan lebih banyak item jika perlu
 ];
