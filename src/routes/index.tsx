@@ -1,7 +1,6 @@
 import Profile from '../pages/Profile';
 import FormElements from '../pages/Form/FormElements';
 import FormLayout from '../pages/Form/FormLayout';
-import Tables from '../pages/Tables';
 import Settings from '../pages/Settings';
 import Chart from '../pages/Chart';
 import Alerts from '../pages/UiElements/Alerts';
@@ -311,11 +310,6 @@ const coreRoutes = [
     path: '/forms/form-layout',
     title: 'Form Layout',
     component: FormLayout,
-  },
-  {
-    path: '/tables',
-    title: 'Tables',
-    component: Tables,
   },
   {
     path: '/settings',
