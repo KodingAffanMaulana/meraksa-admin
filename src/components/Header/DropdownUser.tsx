@@ -28,7 +28,6 @@ const DropdownUser = () => {
       try {
         const parsedData = JSON.parse(storedData);
         setData(parsedData);
-        console.log(parsedData); // Log the parsed data
       } catch (error) {
         console.error('Failed to parse stored data:', error);
       }

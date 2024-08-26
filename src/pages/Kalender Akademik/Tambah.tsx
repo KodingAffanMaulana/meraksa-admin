@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../../common/Loader';
 
 const CreateKalenderAkademik = () => {
@@ -59,12 +58,16 @@ const CreateKalenderAkademik = () => {
   if (loading) return <Loader />;
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
-      <Breadcrumb pageName="Tambah Kalender Akademik" />
-
+      <div className='justify-between flex items-center pb-5'>
+        <div className='flex justify-center text-2xl font-bold'>Tambah Kalender Akademik
+        </div>
+        <Link to="/kalender" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-black dark:text-white mb-2 font-semibold">Tahun</label>
           <input
+            required
             type="text"
             value={tahun}
             onChange={(e) => setTahun(e.target.value)}
@@ -82,6 +85,7 @@ const CreateKalenderAkademik = () => {
             className="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5"
           >
             <input
+              required
               type="file"
               accept="image/*"
               className="absolute inset-0 z-50 m-0 h-full w-full cursor-pointer p-0 opacity-0 outline-none"

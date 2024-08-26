@@ -1,8 +1,7 @@
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const EditSaranaPrasarana = () => {
   const [konten, setKonten] = useState('');
@@ -75,12 +74,16 @@ const EditSaranaPrasarana = () => {
 
   if (loading) return <div>Loading...</div>;
   return (
-    <>
-      <Link to="/sarana-prasarana" className='rounded-lg border text-white py-2 px-3 bg-blue-500'>Kembali</Link>
-      <div className="max-w-6xl mx-auto pt-5">
+    <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 mx-auto">
+      <div className='justify-between flex items-center pb-5'>
+        <div className='flex justify-center text-2xl font-bold'>Edit Sarana Prasarana
+        </div>
+        <Link to="/sarana-prasarana" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
+      </div>
+      <div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Edit Sarana dan Prasarana</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">Gambar</label>
             <div
               id="FileUpload"
               className="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5"
@@ -133,7 +136,7 @@ const EditSaranaPrasarana = () => {
           </button>
         </form>
       </div>
-    </>
+    </section>
   );
 };
 

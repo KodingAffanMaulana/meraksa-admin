@@ -85,12 +85,12 @@ const ProfileSekolah = () => {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <>
-      <Breadcrumb pageName="DATA PROFIL SMAN 1 MERAKSA AJI" />
-      <div className="max-w-6xl mx-auto reset-tw">
+    <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 mx-auto">
+      <Breadcrumb pageName="Profil Sekolah" />
+      <div className="reset-tw">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Profil Sekolah</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">Informasi Sekolah</label>
             <CKEditor
               editor={ClassicEditor}
               data={profil}
@@ -163,7 +163,7 @@ const ProfileSekolah = () => {
         </form>
         {/* <div dangerouslySetInnerHTML={{ __html: profil }} /> */}
       </div>
-    </>
+    </section>
   );
 };
 

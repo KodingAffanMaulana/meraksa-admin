@@ -8,7 +8,7 @@ const PostNews = () => {
   const [title, setTitle] = useState('');
   const [excerpt, setExcerpt] = useState('');
   const [body, setBody] = useState('');
-  const [kategoriblog, setKategoriblog] = useState('');
+  const [kategoriblog, setKategoriblog] = useState('Berita');
   const [tag, setTag] = useState('');
   const [altImage, setAltImage] = useState('');
   const [publishAt, setPublishAt] = useState('');
@@ -77,12 +77,13 @@ const PostNews = () => {
   };
 
   return (
-    <>
-      <div>
-        <Link to="/news" className='rounded-lg border text-white py-2 px-3 bg-blue-500'>Kembali</Link>
-        <div className='flex justify-center text-2xl font-bold'>Tambah Berita Baru</div>
+    <section className="max-w-6xl mx-auto pt-5">
+      <div className='justify-between flex items-center pb-10'>
+        <div className='flex justify-center text-2xl font-bold'>Tambah Berita Baru
+        </div>
+        <Link to="/news" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
       </div>
-      <div className="max-w-6xl mx-auto pt-5">
+      <div >
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">
@@ -112,10 +113,11 @@ const PostNews = () => {
               <option value="Kegiatan">Kegiatan</option>
               <option value="Artikel">Artikel</option>
               <option value="Berita">Berita</option>
+              <option value="Berita">Kemitraan</option>
               <option value="Lain-lain">Lain-lain</option>
             </select>
           </div>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">
               Tag <span className='text-danger text-sm'>* Wajib Diisi</span>
             </label>
@@ -127,7 +129,7 @@ const PostNews = () => {
               className="w-full p-2 border rounded"
               placeholder="Tag"
             />
-          </div>
+          </div> */}
           {/* <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">
               Tanggal Publikasi <span className='text-danger text-sm'>* Wajib Diisi</span>
@@ -199,7 +201,7 @@ const PostNews = () => {
           </button>
         </form>
       </div>
-    </>
+    </section>
   );
 };
 

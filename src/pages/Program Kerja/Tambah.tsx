@@ -1,4 +1,3 @@
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -57,12 +56,13 @@ const CreateProgramKerja = () => {
   };
 
   return (
-    <>
-      <div>
-        <Link to="/progja" className='rounded-lg border text-white py-2 px-3 bg-blue-500'>Kembali</Link>
-        <div className='flex justify-center text-2xl font-bold'>Tambahkan Data Program Kerja</div>
+    <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 mx-auto">
+      <div className='justify-between flex items-center pb-5'>
+        <div className='flex justify-center text-2xl font-bold'>Tambah Program Kerja
+        </div>
+        <Link to="/progja" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
       </div>
-      <div className="max-w-6xl mx-auto reset-tw">
+      <div className="reset-tw">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">Timeline</label>
@@ -111,7 +111,7 @@ const CreateProgramKerja = () => {
           </button>
         </form>
       </div>
-    </>
+    </section>
   );
 };
 

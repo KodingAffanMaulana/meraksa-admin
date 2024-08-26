@@ -79,12 +79,12 @@ const KondisiSiswa = () => {
   if (loading) return <Loader />;
 
   return (
-    <>
-      <Breadcrumb pageName="Manage Kondisi Siswa" />
-      <div className="max-w-6xl mx-auto reset-tw">
+    <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5  max-w-7xl mx-auto">
+      <Breadcrumb pageName="Kondisi Siswa" />
+      <div className="reset-tw" >
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Gambar <span className='text-warning'>(Atur jika diperlukan)</span></label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">Gambar <span className='text-warning'>(Klik untuk mengatur gambar)</span></label>
             <div
               id="FileUpload"
               className="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5"
@@ -111,7 +111,7 @@ const KondisiSiswa = () => {
             </div>
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Deskripsi Kondisi Siswa</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">Deskripsi Kondisi Siswa <span className='text-warning'>(Klik untuk mengatur deskripsi)</span></label>
             <CKEditor
               editor={ClassicEditor}
               data={description}
@@ -134,8 +134,8 @@ const KondisiSiswa = () => {
           </button>
         </form>
         {/* <div dangerouslySetInnerHTML={{ __html: profil }} /> */}
-      </div>
-    </>
+      </div >
+    </section >
   );
 };
 

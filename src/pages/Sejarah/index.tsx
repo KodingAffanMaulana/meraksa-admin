@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-
 const Sejarah = () => {
   const [konten, setKonten] = useState('');
   const [image, setImage] = useState<any>(null);
@@ -79,9 +78,9 @@ const Sejarah = () => {
 
   if (loading) return <div>Loading...</div>;
   return (
-    <>
-      <Breadcrumb pageName="DATA PROFIL SMAN 1 MERAKSA AJI" />
-      <div className="max-w-6xl mx-auto">
+    <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 mx-auto">
+      <Breadcrumb pageName="Sejarah Sekolah" />
+      <div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">Edit Gambar</label>
@@ -136,12 +135,8 @@ const Sejarah = () => {
             Update Sejarah
           </button>
         </form>
-        <div
-          className=""
-          dangerouslySetInnerHTML={{ __html: konten }}
-        />
       </div>
-    </>
+    </section>
   );
 };
 

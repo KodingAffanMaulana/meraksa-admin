@@ -1,4 +1,3 @@
-import Calendar from '../pages/Calendar';
 import Profile from '../pages/Profile';
 import FormElements from '../pages/Form/FormElements';
 import FormLayout from '../pages/Form/FormLayout';
@@ -44,6 +43,16 @@ import KondisiSiswa from '../pages/Kondisi Siswa';
 import SilabusTable from '../pages/Silabus';
 import CreateSilabus from '../pages/Silabus/Tambah';
 import EditSilabus from '../pages/Silabus/Edit';
+import PrestasiGuruTable from '../pages/Prestasi Guru';
+import CreatePrestasiGuru from '../pages/Prestasi Guru/Tambah';
+import EditPrestasiGuru from '../pages/Prestasi Guru/Edit';
+import AdminGallery from '../pages/Galeri Foto';
+import EditPhoto from '../pages/Galeri Foto/Edit';
+import PostGallery from '../pages/Galeri Foto/Tambah';
+import VideoTable from '../pages/Galeri Video';
+import CreateVideo from '../pages/Galeri Video/Tambah';
+import EditVideo from '../pages/Galeri Video/Edit';
+import CreatePrestasi from '../pages/Prestasi/Tambah';
 // const SignIn = lazy(() => import('./pages/Authentication/SignIn'));
 // const SignUp = lazy(() => import('./pages/Authentication/SignUp'));
 // const Calendar = lazy(() => import('./pages/Calendar'));
@@ -144,7 +153,7 @@ const coreRoutes = [
   {
     path: '/prestasi/tambah',
     title: 'Prestasi',
-    component: CreateProgramKerja,
+    component: CreatePrestasi,
   },
   {
     path: '/kepala-sekolah',
@@ -223,7 +232,8 @@ const coreRoutes = [
     path: '/kalender/tambah',
     title: 'Kalender Akademik',
     component: CreateKalenderAkademik,
-  }, {
+  },
+  {
     path: '/silabus',
     title: 'Silabus dan Materi Ajar',
     component: SilabusTable,
@@ -235,14 +245,57 @@ const coreRoutes = [
     path: '/silabus/tambah',
     title: 'Silabus dan Materi Ajar',
     component: CreateSilabus,
+  },
+  {
+    path: '/prestasi-guru',
+    title: 'Prestasi Guru',
+    component: PrestasiGuruTable,
   }, {
+    path: '/prestasi-guru/:id',
+    title: 'Prestasi Guru',
+    component: EditPrestasiGuru,
+  }, {
+    path: '/prestasi-guru/tambah',
+    title: 'Prestasi Guru',
+    component: CreatePrestasiGuru,
+  },
+  {
+    path: '/galeri-foto',
+    title: 'Galeri Foto',
+    component: AdminGallery,
+  },
+  {
+    path: '/galeri-foto/edit/:id',
+    title: 'Galeri Foto',
+    component: EditPhoto,
+  },
+
+  {
+    path: '/galeri-foto/tambah',
+    title: 'Galeri Foto',
+    component: PostGallery,
+  },
+  {
+    path: '/galeri-video',
+    title: 'Galeri Video',
+    component: VideoTable,
+  },
+  {
+    path: '/galeri-video/edit/:id',
+    title: 'Galeri Video',
+    component: EditVideo,
+  },
+
+  {
+    path: '/galeri-video/tambah',
+    title: 'Galeri Video',
+    component: CreateVideo,
+  },
+
+  {
     path: '/kondisi-siswa',
     title: 'Kondisi Siswa',
     component: KondisiSiswa,
-  }, {
-    path: '/calendar',
-    title: 'Calendar',
-    component: Calendar,
   },
   {
     path: '/profile',

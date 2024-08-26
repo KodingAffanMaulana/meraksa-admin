@@ -4,17 +4,22 @@ export const sidebarItems = [
   {
     route: '/profile-sekolah',
     name: 'Profile Sekolah',
-    icon: ImageProfileIcon,
+    icon: ImageProfileIcon, // Pass the component, not JSX
   },
   {
     route: '/sejarah',
     name: 'Sejarah',
-    icon: ImageProfileIcon,
+    icon: ImageProfileIcon, // Pass the component, not JSX
+  },
+  {
+    route: '/news',
+    name: 'Berita dan Artikel',
+    icon: ImageProfileIcon, // Pass the component, not JSX
   },
   {
     route: '/sarana-prasarana',
-    name: 'Sejarah Prasarana',
-    icon: ImageProfileIcon,
+    name: 'Sarana Prasarana',
+    icon: ImageProfileIcon, // Pass the component, not JSX
   },
   {
     route: '/alumni',
@@ -22,11 +27,19 @@ export const sidebarItems = [
     icon: ImageProfileIcon,
   }, {
     route: '/struktur',
-    name: 'Struktur Organisasi',
+    name: 'Struktur Sekolah',
     icon: ImageProfileIcon,
   }, {
     route: '/progja',
     name: 'Program Kerja',
+    icon: ImageProfileIcon,
+  }, {
+    route: '/galeri-foto',
+    name: 'Galeri Foto',
+    icon: ImageProfileIcon,
+  }, {
+    route: '/galeri-video',
+    name: 'Galeri Video',
     icon: ImageProfileIcon,
   }, {
     route: '/prestasi',
@@ -49,10 +62,6 @@ export const sidebarItems = [
     name: 'Direktori Siswa',
     icon: ImageProfileIcon,
   }, {
-    route: '/news',
-    name: 'Berita dan Artikel',
-    icon: ImageProfileIcon,
-  }, {
     route: '/kalender',
     name: 'Kalender Akademik',
     icon: ImageProfileIcon,
@@ -63,6 +72,10 @@ export const sidebarItems = [
   }, {
     route: '/silabus',
     name: 'Silabus dan Materi Ajar',
+    icon: ImageProfileIcon,
+  }, {
+    route: '/prestasi-guru',
+    name: 'Prestasi Guru',
     icon: ImageProfileIcon,
   },
   // Tambahkan lebih banyak item jika perlu

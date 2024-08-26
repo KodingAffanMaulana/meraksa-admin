@@ -79,9 +79,9 @@ const KomiteSekolah = () => {
   if (loading) return <Loader />;
 
   return (
-    <>
+    <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5  max-w-7xl mx-auto">
       <Breadcrumb pageName="Komite Sekolah" />
-      <div className="max-w-6xl mx-auto">
+      <div >
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">Gambar</label>
@@ -142,7 +142,7 @@ const KomiteSekolah = () => {
           </button>
         </form>
       </div>
-    </>
+    </section>
   );
 };
 

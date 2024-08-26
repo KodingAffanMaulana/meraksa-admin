@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 
 const EditEkstrakurikuler = () => {
@@ -91,7 +90,12 @@ const EditEkstrakurikuler = () => {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <Breadcrumb pageName="Edit Ekstrakurikuler" />
+      <div className='justify-between flex items-center pb-5'>
+        <h1 className='flex justify-center text-2xl font-bold'>Edit Ekstrakurikuler
+        </h1>
+        <Link to="/ekstrakurikuler" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
+      </div>
+      {/* <Breadcrumb pageName="Edit Ekstrakurikuler" /> */}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-black dark:text-white mb-2 font-semibold">Judul</label>

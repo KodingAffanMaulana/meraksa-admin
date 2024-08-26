@@ -115,7 +115,7 @@ const SiswaTable = () => {
       </div>
 
       {searchStatus && (
-        <div className="text-gray-600">{searchStatus}</div>
+        <div className="text-gray-600 text-end">{searchStatus}</div>
       )}
 
       <div className="max-w-full overflow-x-auto py-5">

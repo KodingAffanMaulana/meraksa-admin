@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
+import { Link, useNavigate } from 'react-router-dom';
 import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 import Loader from '../../common/Loader';
 
@@ -58,10 +57,16 @@ const CreateKepalaSekolah = () => {
       });
   };
 
+  if (loading) return <Loader />;
+
   return (
-    <>
-      <Breadcrumb pageName="Tambah Kepala Sekolah" />
-      <div className="max-w-6xl mx-auto reset-tw">
+    <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5  max-w-7xl mx-auto">
+      <div className='justify-between flex items-center pb-5'>
+        <div className='flex justify-center text-2xl font-bold'>Tambah Kepala Sekolah
+        </div>
+        <Link to="/kepala-sekolah" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
+      </div>
+      <div className="reset-tw">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">Nama Kepala Sekolah</label>
@@ -128,7 +133,7 @@ const CreateKepalaSekolah = () => {
           </button>
         </form>
       </div>
-    </>
+    </section>
   );
 };
 

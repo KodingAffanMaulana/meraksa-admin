@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 import Loader from '../../common/Loader';
 
@@ -91,12 +90,13 @@ const EditKepalaSekolah = () => {
   if (loading) return <Loader />;
 
   return (
-    <>
-      <div>
-        <Link to="/kepala-sekolah" className='rounded-lg border text-white py-2 px-3 bg-blue-500'>Kembali</Link>
-        <div className='flex justify-center text-2xl font-bold'>Edit Data Kepala Sekolah</div>
+    <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5  max-w-7xl mx-auto">
+      <div className='justify-between flex items-center pb-5'>
+        <div className='flex justify-center text-2xl font-bold'>Edit Data Kepala Sekolah
+        </div>
+        <Link to="/kepala-sekolah" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
       </div>
-      <div className="max-w-6xl mx-auto reset-tw">
+      <div className="reset-tw">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">Nama Kepala Sekolah</label>
@@ -156,7 +156,7 @@ const EditKepalaSekolah = () => {
           </button>
         </form>
       </div>
-    </>
+    </section>
   );
 };
 

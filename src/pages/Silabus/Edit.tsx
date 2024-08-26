@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loader from '../../common/Loader';
 import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 
@@ -83,7 +82,11 @@ const EditSilabus = () => {
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
-      <Breadcrumb pageName="Edit Silabus" />
+      <div className='justify-between flex items-center pb-10'>
+        <div className='flex justify-center text-2xl font-bold'>Edit Silabus
+        </div>
+        <Link to="/silabus" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-black dark:text-white mb-2 font-semibold">Tahun</label>

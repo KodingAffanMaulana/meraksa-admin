@@ -71,9 +71,13 @@ const PostSiswa = () => {
   };
 
   return (
-    <>
-      <Link to="/siswa" className='rounded-lg border text-white py-2 px-3 bg-blue-500'>Kembali</Link>
-      <div className="max-w-6xl mx-auto pt-5">
+    <section className="max-w-6xl mx-auto">
+      <div className='justify-between flex items-center pb-10'>
+        <div className='flex justify-center text-2xl font-bold'>Tambah Data Siswa
+        </div>
+        <Link to="/siswa" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
+      </div>
+      <div >
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">
@@ -228,7 +232,7 @@ const PostSiswa = () => {
           </button>
         </form>
       </div>
-    </>
+    </section>
   );
 };
 

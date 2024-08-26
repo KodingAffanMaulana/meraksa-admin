@@ -57,12 +57,13 @@ const CreateStrukturOrganisasi = () => {
 
   if (loading) return <div>Loading...</div>;
   return (
-    <div>
-      <div>
-        <Link to="/struktur" className='rounded-lg border text-white py-2 px-3 bg-blue-500'>Kembali</Link>
-        <div className='flex justify-center text-2xl font-bold'>Tambahkan Data Struktur Organisasi</div>
+    <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 mx-auto">
+      <div className='justify-between flex items-center pb-5'>
+        <div className='flex justify-center text-2xl font-bold'>Tambah Data Guru
+        </div>
+        <Link to="/struktur" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
       </div>
-      <form className="max-w-6xl mx-auto pt-5" onSubmit={handleSubmit}>
+      <form className="pt-5" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-black dark:text-white mb-2 font-semibold">Nama</label>
           <input
@@ -102,7 +103,7 @@ const CreateStrukturOrganisasi = () => {
             className="w-full p-2 border rounded"
           />
         </div>
-        <label className="block dark:text-white mb-2 font-semibold text-warning">Detail Informasi Tambahan Bisa Diinput pada Halaman Edit</label>
+        <label className="block dark:text-white pb-3 font-semibold text-warning">Note: Detail Informasi Tambahan Bisa Ditambahkan pada Halaman Edit</label>
         <button
           type="submit"
           className="w-full py-3 px-6 rounded bg-primary text-white hover:bg-opacity-90 transition duration-300"
@@ -110,7 +111,7 @@ const CreateStrukturOrganisasi = () => {
           Buat Struktur Organisasi
         </button>
       </form>
-    </div>
+    </section>
   );
 };
 
