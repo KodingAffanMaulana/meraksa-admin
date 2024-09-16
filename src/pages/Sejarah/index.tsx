@@ -2,6 +2,7 @@ import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 
 const Sejarah = () => {
   const [konten, setKonten] = useState('');
@@ -60,6 +61,7 @@ const Sejarah = () => {
       },
       body: formData,
     })
+      .then(checkTokenExpiration)
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 200) {
