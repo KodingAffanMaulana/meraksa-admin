@@ -7,6 +7,7 @@ import Loader from '../../common/Loader';
 
 const PostSaranaPrasarana = () => {
   const [konten, setKonten] = useState('');
+  const [title, setTitle] = useState('');
   const [image, setImage] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const PostSaranaPrasarana = () => {
 
     const formData = new FormData();
     formData.append('konten', konten);
+    formData.append('title', title);
     if (image instanceof File) {
       formData.append('image', image);
     }
@@ -94,7 +96,19 @@ const PostSaranaPrasarana = () => {
             </div>
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Tambah Konten Sarana Prasarana</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">Nama Sarana Prasarana</label>
+            <input
+              required
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full p-2 border rounded"
+              placeholder="Masukkan Nama Sarana Prasarana"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Detail Sarana Prasarana</label>
             <div className="reset-tw">
               <CKEditor
                 editor={ClassicEditor}

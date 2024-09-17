@@ -62,7 +62,9 @@ const SaranaPrasaranaTable = () => {
                 No
               </th>
               <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
-                Konten
+                Nama Sarana
+              </th><th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
+                Detail Sarana
               </th>
               <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
                 Image
@@ -77,6 +79,9 @@ const SaranaPrasaranaTable = () => {
               <tr key={item.id} className='text-center'>
                 <td className="border-b px-4 border-[#eee] dark:border-strokedark">
                   {i + 1}
+                </td>
+                <td className="border-b px-4 border-[#eee] dark:border-strokedark">
+                  {item.title}
                 </td>
 
                 <td className="border-b border-[#eee] px-4 dark:border-strokedark">

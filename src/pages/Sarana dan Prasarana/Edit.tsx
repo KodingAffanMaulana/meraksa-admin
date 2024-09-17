@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import Loader from '../../common/Loader';
 
 const EditSaranaPrasarana = () => {
   const [konten, setKonten] = useState('');
+  const [title, setTitle] = useState('');
   const [image, setImage] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  console.log(id);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}/api/sarana-prasarana/${id}`, {
@@ -19,6 +21,7 @@ const EditSaranaPrasarana = () => {
         if (data.status === 200) {
           setKonten(data.data.konten);
           setImage(data.data.image);
+          setTitle(data.data.title)
           setLoading(false);
         }
       })
@@ -60,6 +63,7 @@ const EditSaranaPrasarana = () => {
       .then((data) => {
         if (data.status === 200) {
           alert('Sarana-prasarana berhasil diperbarui!');
+          navigate('/sarana-prasarana')
         } else {
           alert('Terjadi kesalahan saat memperbarui Sarana Prasarana');
         }
@@ -72,7 +76,7 @@ const EditSaranaPrasarana = () => {
       });
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loader />;
   return (
     <section className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 mx-auto">
       <div className='justify-between flex items-center pb-5'>
@@ -108,6 +112,17 @@ const EditSaranaPrasarana = () => {
                 <p className="mt-1.5">SVG, PNG, JPG or GIF</p>
               </div>
             </div>
+          </div>
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Edit Nama Sarana Prasarana</label>
+            <input
+              required
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full p-2 border rounded"
+              placeholder="Masukkan Nama Sarana Prasarana"
+            />
           </div>
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">Edit Konten Sarana Prasarana</label>
