@@ -59,43 +59,48 @@ const ProgramKerjaTable = () => {
         <table className="w-full table-auto text-center">
           <thead>
             <tr className="bg-gray-2 dark:bg-meta-4">
-              <th className="min-w-[50px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
+              <th className="font-medium text-black dark:text-white">
                 No
               </th>
-              <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
+              <th className="font-medium text-black dark:text-white">
                 Timeline
               </th>
-              <th className="min-w-[250px] py-4 px-4 font-medium text-black dark:text-white">
+              <th className="font-medium text-black dark:text-white">
                 Nama Program Kerja
               </th>
-              <th className="min-w-[300px] py-4 px-4 font-medium text-black dark:text-white">
+              <th className="font-medium text-black dark:text-white">
                 Detail Program Kerja
+              </th><th className="font-medium text-black dark:text-white">
+                Gambar (Optional)
               </th>
-              <th className="py-4 px-4 font-medium text-black dark:text-white">
+              <th className="font-medium text-black dark:text-white">
                 Actions
               </th>
             </tr>
           </thead>
           <tbody>
             {data.map((item: any, i: number) => (
-              <tr key={item.id}>
-                <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
+              <tr key={item.id} className=''>
+                <td className="border-b border-[#eee] dark:border-strokedark">
                   {i + 1}
                 </td>
 
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                <td className="border-b border-[#eee]  dark:border-strokedark">
                   {item.timeline}
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                <td className="border-b border-[#eee]  dark:border-strokedark">
                   {item.kegiatan}
                 </td>
 
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                <td className="border-b border-[#eee]  dark:border-strokedark">
                   <div
                     dangerouslySetInnerHTML={{ __html: item.tujuan || 'N/A' }}
                   />
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark ">
+                <td className="border-b border-[#eee] flex justify-center items-center dark:border-strokedark">
+                  <img src={item.image} alt="Image" className="w-16 h-16 object-cover" />
+                </td>
+                <td className="border-b border-[#eee]  dark:border-strokedark ">
                   <div className='flex items-center justify-center gap-3'>
                     <button
                       className="hover:text-primary flex items-center gap-1"

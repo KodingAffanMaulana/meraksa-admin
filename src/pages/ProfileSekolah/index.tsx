@@ -9,6 +9,7 @@ const ProfileSekolah = () => {
   const [profil, setProfil] = useState('');
   const [visi, setVisi] = useState('');
   const [misi, setMisi] = useState('');
+  const [npsn, setNpsn] = useState('');
   const [sambutan, setSambutan] = useState('');
   const [alamat, setAlamat] = useState('');
   const [telepon, setTelepon] = useState('');
@@ -31,6 +32,7 @@ const ProfileSekolah = () => {
           setProfil(data.data.profil);
           setVisi(data.data.visi);
           setMisi(data.data.misi);
+          setNpsn(data.data.npsn);
           setAlamat(data.data.alamat);
           setEmail(data.data.email);
           setTelepon(data.data.telepon);
@@ -69,6 +71,7 @@ const ProfileSekolah = () => {
     formData.append('alamat', alamat);
     formData.append('telepon', telepon);
     formData.append('email', email);
+    formData.append('npsn', npsn);
 
     if (image instanceof File) {
       formData.append('image', image);
@@ -217,6 +220,22 @@ const ProfileSekolah = () => {
               onChange={(event, editor) => {
                 const data = editor.getData();
                 setTelepon(data);
+              }}
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">NPSN</label>
+            <CKEditor
+              editor={ClassicEditor}
+              data={npsn}
+              config={{
+                toolbar: [
+                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                ],
+              }}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                setNpsn(data);
               }}
             />
 

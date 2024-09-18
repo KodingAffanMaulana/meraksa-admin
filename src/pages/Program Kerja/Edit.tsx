@@ -8,9 +8,10 @@ const EditProgramKerja = () => {
   const [timeline, setTimeline] = useState('');
   const [kegiatan, setKegiatan] = useState('');
   const [tujuan, setTujuan] = useState('');
+  const [image, setImage] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}/api/program-kerja/${id}`, {
@@ -22,6 +23,7 @@ const EditProgramKerja = () => {
           setTimeline(data.data.timeline);
           setKegiatan(data.data.kegiatan);
           setTujuan(data.data.tujuan);
+          setImage(data.data.image); // Mengambil data gambar dari respons
           setLoading(false);
         }
       })
@@ -30,6 +32,10 @@ const EditProgramKerja = () => {
         setLoading(false);
       });
   }, [id]);
+
+  const handleFileChange = (e: any) => {
+    setImage(e.target.files[0]); // Set file gambar yang diupload
+  };
 
   const handleSubmit = (e: any) => {
     setLoading(true);
@@ -42,19 +48,20 @@ const EditProgramKerja = () => {
       return;
     }
 
-    const requestBody = {
-      timeline: timeline,
-      kegiatan: kegiatan,
-      tujuan: tujuan,
-    };
+    const formData = new FormData();
+    formData.append('timeline', timeline);
+    formData.append('kegiatan', kegiatan);
+    formData.append('tujuan', tujuan);
+    if (image instanceof File) {
+      formData.append('image', image); // Jika ada gambar yang diupload, tambahkan ke FormData
+    }
 
     fetch(`${import.meta.env.VITE_BASE_URL}/api/program-kerja/${id}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(requestBody),
+      body: formData, // Mengirim FormData
     })
       .then(checkTokenExpiration)
       .then((res) => res.json())
@@ -62,7 +69,7 @@ const EditProgramKerja = () => {
         if (data.status === 200) {
           alert('Program Kerja berhasil diperbarui!');
           setLoading(false);
-          navigate('/progja')
+          navigate('/progja');
         } else {
           alert('Terjadi kesalahan saat memperbarui Program Kerja.');
           setLoading(false);
@@ -123,6 +130,33 @@ const EditProgramKerja = () => {
                 setTujuan(data);
               }}
             />
+          </div>
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Gambar</label>
+            <div
+              id="FileUpload"
+              className="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5"
+            >
+              <input
+                type="file"
+                accept="image/*"
+                className="absolute inset-0 z-50 m-0 h-full w-full cursor-pointer p-0 opacity-0 outline-none"
+                onChange={handleFileChange}
+              />
+              <div className="flex flex-col items-center justify-center space-y-3">
+                {image && (
+                  typeof image === 'string' ? (
+                    <img src={image} alt="Program Image" className="mb-4 max-h-40" />
+                  ) : (
+                    <img src={URL.createObjectURL(image)} alt="Program Image" className="mb-4 max-h-40" />
+                  )
+                )}
+                <p>
+                  <span className="text-primary">Click to upload</span> or update image
+                </p>
+                <p className="mt-1.5">SVG, PNG, JPG or GIF</p>
+              </div>
+            </div>
           </div>
           <button
             type="submit"
