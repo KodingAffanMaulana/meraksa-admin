@@ -112,9 +112,9 @@ const NewsTable: React.FC = () => {
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <Breadcrumb pageName="Direktori Berita" />
 
-      <div className="flex gap-2 justify-between items-center my-4">
+      <div className="flex flex-col-reverse items-end md:flex-row gap-2 justify-between md:items-center my-4">
         <Link to="/news/tambah" className='rounded-lg border text-white py-2 px-3 bg-green-400 hover:bg-green-500'>Tambah Berita</Link>
-        <div className='flex justify-end w-8/12'>
+        <div className='flex justify-end w-full md:w-8/12'>
           <input
             type="text"
             placeholder="Cari Judul Berita..."

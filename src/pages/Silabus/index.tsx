@@ -64,7 +64,7 @@ const SilabusTable = () => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <Breadcrumb pageName="Silabus dan Materi Ajar" />
-      <div className='flex items-center justify-end gap-2'>
+      <div className='flex flex-col-reverse md:flex-row items-end md:items-center justify-end gap-2'>
         <Link to="/silabus/tambah" className='rounded-lg border text-white py-2 px-3 bg-green-400 hover:bg-green-500'>
           Tambah Silabus
         </Link>
@@ -90,7 +90,7 @@ const SilabusTable = () => {
                 Tahun
               </th>
               <th className="min-w-[250px] py-4 px-4 font-medium text-black dark:text-white">
-                Title
+                Silabus
               </th>
               <th className="min-w-[250px] py-4 px-4 font-medium text-black dark:text-white">
                 File

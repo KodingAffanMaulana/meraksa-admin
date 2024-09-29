@@ -87,7 +87,7 @@ const PrestasiGuruTable = () => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 ">
       <Breadcrumb pageName="Prestasi Guru" />
-      <div className='flex items-center justify-end gap-2'>
+      <div className='flex flex-col-reverse md:flex-row items-end md:items-center justify-end gap-2'>
         <Link to="/prestasi-guru/tambah" className='rounded-lg border text-white py-2 px-3 bg-green-400 hover:bg-green-500'>
           Tambah Prestasi Guru
         </Link>

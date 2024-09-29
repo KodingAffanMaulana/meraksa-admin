@@ -69,19 +69,19 @@ const KepalaSekolah = () => {
         <table className="w-full table-auto">
           <thead>
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
-              <th className="py-4 px-4 text-center font-medium text-black dark:text-white">
+              <th className="py-4 px-4 text-center font-medium text-black dark:text-white text-nowrap">
                 No
               </th>
-              <th className="text-center py-4 px-4 font-medium text-black dark:text-white">
+              <th className="text-center py-4 px-4 font-medium text-black dark:text-white text-nowrap">
                 Nama
               </th>
-              <th className="text-center py-4 px-4 font-medium text-black dark:text-white">
+              <th className="text-center py-4 px-4 font-medium text-black dark:text-white text-nowrap">
                 Tahun Memimpin
               </th>
-              <th className="text-center py-4 px-4 font-medium text-black dark:text-white">
+              <th className="text-center py-4 px-4 font-medium text-black dark:text-white text-nowrap">
                 Gambar
               </th>
-              <th className="text-center py-4 px-4 font-medium text-black dark:text-white">
+              <th className="text-center py-4 px-4 font-medium text-black dark:text-white text-nowrap">
                 Action
               </th>
             </tr>

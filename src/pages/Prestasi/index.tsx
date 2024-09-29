@@ -59,22 +59,22 @@ const Prestasi = () => {
         <table className="w-full table-auto">
           <thead>
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
-              <th className="py-4 px-4 text-center font-medium text-black dark:text-white">
+              <th className="py-4 px-4 text-nowrap text-center font-medium text-black dark:text-white">
                 No
               </th>
-              <th className="text-center py-4 px-4 font-medium text-black dark:text-white">
+              <th className="text-center text-nowrap py-4 px-4 font-medium text-black dark:text-white">
                 Judul
               </th>
-              <th className="text-center py-4 px-4 font-medium text-black dark:text-white">
+              <th className="text-center text-nowrap py-4 px-4 font-medium text-black dark:text-white">
                 Jenis Prestasi
               </th>
-              <th className="text-center py-4 px-4 font-medium text-black dark:text-white">
+              <th className="text-center text-nowrap py-4 px-4 font-medium text-black dark:text-white">
                 Deskripsi
               </th>
-              <th className="text-center py-4 px-4 font-medium text-black dark:text-white">
+              <th className="text-center text-nowrap py-4 px-4 font-medium text-black dark:text-white">
                 Gambar
               </th>
-              <th className="text-center py-4 px-4 font-medium text-black dark:text-white">
+              <th className="text-center text-nowrap py-4 px-4 font-medium text-black dark:text-white">
                 Action
               </th>
             </tr>

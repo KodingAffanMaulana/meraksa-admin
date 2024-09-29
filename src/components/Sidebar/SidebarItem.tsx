@@ -27,7 +27,7 @@ export const sidebarItems = [
     icon: ImageProfileIcon,
   }, {
     route: '/struktur',
-    name: 'Struktur Sekolah',
+    name: 'Daftar Guru',
     icon: ImageProfileIcon,
   }, {
     route: '/progja',
@@ -43,7 +43,7 @@ export const sidebarItems = [
     icon: ImageProfileIcon,
   }, {
     route: '/prestasi',
-    name: 'Prestasi',
+    name: 'Prestasi Siswa',
     icon: ImageProfileIcon,
   }, {
     route: '/kepala-sekolah',

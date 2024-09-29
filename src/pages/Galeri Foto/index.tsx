@@ -75,14 +75,14 @@ const AdminGallery = () => {
         </Link>
       </div>
       <div className="max-w-full overflow-x-auto pt-5">
-        <table className="w-full table-auto">
+        <table className="w-full table-auto text-center">
           <thead>
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
-              <th className="py-4 px-4 text-center font-medium text-black dark:text-white">No</th>
-              <th className="py-4 px-4 text-center font-medium text-black dark:text-white">Nama Galeri</th>
-              <th className="py-4 px-4 text-center font-medium text-black dark:text-white">Kategori</th>
-              <th className="py-4 px-4 text-center font-medium text-black dark:text-white">Images</th>
-              <th className="py-4 px-4 text-center font-medium text-black dark:text-white">Actions</th>
+              <th className="py-4 px-4 text-nowrap text-center font-medium text-black dark:text-white">No</th>
+              <th className="py-4 px-4 text-nowrap text-center font-medium text-black dark:text-white">Nama Galeri</th>
+              <th className="py-4 px-4 text-nowrap text-center font-medium text-black dark:text-white">Kategori</th>
+              <th className="py-4 px-4 text-nowrap text-center font-medium text-black dark:text-white">Images</th>
+              <th className="py-4 px-4 text-nowrap text-center font-medium text-black dark:text-white">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -97,10 +97,10 @@ const AdminGallery = () => {
                 <td className="border-b border-[#b9b9b9] text-center py-5 px-4 dark:border-strokedark">
                   {photo.category}
                 </td>
-                <td className="border-b border-[#b9b9b9] text-center py-5 px-4 dark:border-strokedark w-3/12">
+                <td className="border-b border-[#b9b9b9] text-center py-5 px-4 dark:border-strokedark">
                   <div className="grid grid-cols-2 gap-2">
                     {photo.image.slice(0, 4).map((img: any) => (
-                      <div key={img.id} className=" mb-2">
+                      <div key={img.id} className="w-auto mb-2">
                         <img
                           src={img.url}
                           alt={`Photo ${img.id}`}
@@ -113,8 +113,8 @@ const AdminGallery = () => {
                     <p className="text-gray-500 dark:text-gray-400 mt-2">+{photo.image.length - 4} more</p>
                   )}
                 </td>
-                <td className="border-b border-[#b9b9b9] py-5 px-4 dark:border-strokedark w-3/12">
-                  <div className='flex space-x-3 justify-center'>
+                <td className="border-b border-[#b9b9b9] dark:border-strokedark ">
+                  <div className='flex items-center justify-center gap-3'>
                     <button
                       className="hover:text-primary flex items-center gap-1"
                       onClick={() => handleEdit(photo.id)}
@@ -167,7 +167,7 @@ const AdminGallery = () => {
                           fill=""
                         />
                       </svg>
-                      Hapus Galeri
+                      Hapus
                     </button>
                   </div>
                 </td>
@@ -176,7 +176,7 @@ const AdminGallery = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    </div >
   );
 };
 

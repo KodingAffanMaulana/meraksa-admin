@@ -59,21 +59,21 @@ const ProgramKerjaTable = () => {
         <table className="w-full table-auto text-center">
           <thead>
             <tr className="bg-gray-2 dark:bg-meta-4">
-              <th className="font-medium text-black dark:text-white">
+              <th className="py-4 px-4 font-medium text-nowrap text-black dark:text-white">
                 No
               </th>
-              <th className="font-medium text-black dark:text-white">
+              <th className="py-4 px-4 font-medium text-nowrap text-black dark:text-white">
                 Timeline
               </th>
-              <th className="font-medium text-black dark:text-white">
+              <th className="py-4 px-4 font-medium text-nowrap text-black dark:text-white">
                 Nama Program Kerja
               </th>
-              <th className="font-medium text-black dark:text-white">
+              <th className="py-4 px-4 font-medium text-nowrap text-black dark:text-white">
                 Detail Program Kerja
-              </th><th className="font-medium text-black dark:text-white">
+              </th><th className="py-4 px-4 font-medium text-nowrap text-black dark:text-white">
                 Gambar (Optional)
               </th>
-              <th className="font-medium text-black dark:text-white">
+              <th className="py-4 px-4 font-medium text-nowrap text-black dark:text-white">
                 Actions
               </th>
             </tr>
@@ -154,7 +154,7 @@ const ProgramKerjaTable = () => {
                           fill=""
                         />
                       </svg>
-                      Delete
+                      Hapus
                     </button>
                   </div>
                 </td>

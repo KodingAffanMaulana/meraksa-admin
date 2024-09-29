@@ -53,9 +53,9 @@ const StrukturOrganisasi = () => {
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default scroll-smooth  dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-      <Breadcrumb pageName="Struktur Manajemen Sekolah" />
+      <Breadcrumb pageName="Daftar Guru dan Staff" />
       <Link to="/struktur/tambah" className='rounded-lg border text-white py-2 px-3 bg-green-400 hover:bg-green-500'>Tambah Data</Link>
-      <div className="max-w-full scroll-smooth pt-5">
+      <div className="max-w-full scroll-smooth overflow-x-auto pt-5">
         <table className="w-full table-auto">
           <thead>
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
