@@ -132,7 +132,7 @@ const ImageProfileIcon = ({ route }: any) => {
       case '/kondisi-siswa':
         return (
           <div>
-            <img src="/images/kondisi.svg" alt="icon" className="w-[18px] h-[18px]" />
+            <img src="/images/kondisi-siswa.jpg" alt="icon" className="w-[18px] h-[18px]" />
           </div>
         );
       // Add more cases for other routes

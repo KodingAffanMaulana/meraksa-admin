@@ -2,7 +2,7 @@ import React, { useState, ReactNode } from 'react';
 
 const AuthLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <div className="dark:bg-boxdark-2 dark:text-bodydark bg-blue-200">
+    <div className="dark:bg-boxdark-2 dark:text-bodydark bg-[url('/images/logo.png')] bg-cover bg-center bg-no-repeat">
       {/* <!-- ===== Page Wrapper Start ===== --> */}
       <div className="flex h-screen overflow-hidden">
         {/* <!-- ===== Sidebar Start ===== --> */}
