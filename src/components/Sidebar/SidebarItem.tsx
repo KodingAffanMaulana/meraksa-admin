@@ -7,6 +7,11 @@ export const sidebarItems = [
     icon: ImageProfileIcon, // Pass the component, not JSX
   },
   {
+    route: '/pengumuman',
+    name: 'Pengumuman Sekolah',
+    icon: ImageProfileIcon,
+  },
+  {
     route: '/sejarah',
     name: 'Sejarah',
     icon: ImageProfileIcon, // Pass the component, not JSX
@@ -45,7 +50,9 @@ export const sidebarItems = [
     route: '/prestasi',
     name: 'Prestasi Siswa',
     icon: ImageProfileIcon,
-  }, {
+  },
+
+  {
     route: '/kepala-sekolah',
     name: 'Kepala Sekolah',
     icon: ImageProfileIcon,

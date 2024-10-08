@@ -81,6 +81,12 @@ const ImageProfileIcon = ({ route }: any) => {
             <img src="/images/video.svg" alt="icon" className="w-[18px] h-[18px]" />
           </div>
         );
+      case '/pengumuman':
+        return (
+          <div>
+            <img src="/images/pengumuman.jpg" alt="icon" className="w-[18px] h-[18px]" />
+          </div>
+        );
       case '/prestasi':
         return (
           <div>

@@ -52,6 +52,9 @@ import VideoTable from '../pages/Galeri Video';
 import CreateVideo from '../pages/Galeri Video/Tambah';
 import EditVideo from '../pages/Galeri Video/Edit';
 import CreatePrestasi from '../pages/Prestasi/Tambah';
+import Pengumuman from '../pages/Pengumuman';
+import PostPengumuman from '../pages/Pengumuman/Tambah';
+import EditPengumuman from '../pages/Pengumuman/Edit';
 // const SignIn = lazy(() => import('./pages/Authentication/SignIn'));
 // const SignUp = lazy(() => import('./pages/Authentication/SignUp'));
 // const Calendar = lazy(() => import('./pages/Calendar'));
@@ -300,6 +303,21 @@ const coreRoutes = [
     path: '/profile',
     title: 'Profile',
     component: Profile,
+  },
+  {
+    path: '/pengumuman',
+    title: 'Pengumuman Sekolah',
+    component: Pengumuman,
+  },
+  {
+    path: '/pengumuman/tambah',
+    title: 'Pengumuman Sekolah',
+    component: PostPengumuman,
+  },
+  {
+    path: '/pengumuman/:id',
+    title: 'Pengumuman Sekolah',
+    component: EditPengumuman,
   },
   {
     path: '/forms/form-elements',
