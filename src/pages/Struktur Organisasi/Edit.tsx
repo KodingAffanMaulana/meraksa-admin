@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const EditStrukturOrganisasi = () => {
   const [nama, setNama] = useState('');
@@ -18,7 +18,7 @@ const EditStrukturOrganisasi = () => {
   const [image, setImage] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-
+  const navigate = useNavigate()
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}/api/detail-struktur-organisasi/${id}`, {
       method: 'GET',
@@ -93,6 +93,7 @@ const EditStrukturOrganisasi = () => {
       .then((data) => {
         if (data.status === 200) {
           alert('Struktur Organisasi berhasil diperbarui!');
+          navigate('/struktur')
         } else {
           alert('Terjadi kesalahan saat memperbarui Struktur Organisasi');
         }

@@ -14,6 +14,11 @@ const ProfileSekolah = () => {
   const [alamat, setAlamat] = useState('');
   const [telepon, setTelepon] = useState('');
   const [email, setEmail] = useState('');
+  const [urlAdmin, setUrlAdmin] = useState('');
+  const [facebook, setFacebook] = useState('');
+  const [youtube, setYoutube] = useState('');
+  const [instagram, setInstagram] = useState('');
+  const [xmedsos, setXmedsos] = useState('');
   const [image, setImage] = useState<any>(null);
   const [id, setId] = useState('');
   const [loading, setLoading] = useState(true);
@@ -38,6 +43,11 @@ const ProfileSekolah = () => {
           setTelepon(data.data.telepon);
           setImage(data.data.image);
           setSambutan(data.data.sambutan);
+          setUrlAdmin(data.data.urlAdmin);
+          setFacebook(data.data.facebook);
+          setYoutube(data.data.youtube);
+          setInstagram(data.data.instagram);
+          setXmedsos(data.data.xmedsos);
           setId(data.data.id);
           setLoading(false);
         }
@@ -72,6 +82,11 @@ const ProfileSekolah = () => {
     formData.append('telepon', telepon);
     formData.append('email', email);
     formData.append('npsn', npsn);
+    formData.append('urlAdmin', urlAdmin);
+    formData.append('facebook', facebook);
+    formData.append('youtube', youtube);
+    formData.append('instagram', instagram);
+    formData.append('xmedsos', xmedsos);
 
     if (image instanceof File) {
       formData.append('image', image);
@@ -257,6 +272,41 @@ const ProfileSekolah = () => {
             />
 
           </div>
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Url Admin</label>
+            <input type="text" value={urlAdmin} className='rounded border px-3 w-full py-2' onChange={(e) => {
+              setUrlAdmin(e.target.value);
+            }} />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Facebook</label>
+            <input type="text" value={facebook} className='rounded border px-3 w-full py-2' onChange={(e) => {
+              setFacebook(e.target.value);
+            }} />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Youtube</label>
+            <input type="text" value={youtube} className='rounded border px-3 w-full py-2' onChange={(e) => {
+              setYoutube(e.target.value);
+            }} />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Instagram</label>
+            <input type="text" value={instagram} className='rounded border px-3 w-full py-2' onChange={(e) => {
+              setInstagram(e.target.value);
+            }} />
+          </div>
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">Twitter/X</label>
+            <input type="text" value={xmedsos} className='rounded border px-3 w-full py-2' onChange={(e) => {
+              setXmedsos(e.target.value);
+            }} />
+          </div>
+
+
           <div className="mb-4">
             <label className="block text-black dark:text-white mb-2 font-semibold">Gambar Utama</label>
             <div

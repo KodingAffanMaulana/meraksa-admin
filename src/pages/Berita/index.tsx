@@ -37,7 +37,7 @@ const NewsTable: React.FC = () => {
 
   const fetchData = async (query = '') => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/news?page=${currentPage}&title=${query}`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/news/only?page=${currentPage}&title=${query}`);
       const result: NewsResponse = await response.json();
       if (result.status === 200) {
         setData(result.data.news);
