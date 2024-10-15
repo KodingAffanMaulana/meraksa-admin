@@ -55,6 +55,9 @@ import CreatePrestasi from '../pages/Prestasi/Tambah';
 import Pengumuman from '../pages/Pengumuman';
 import PostPengumuman from '../pages/Pengumuman/Tambah';
 import EditPengumuman from '../pages/Pengumuman/Edit';
+import UnduhanTable from '../pages/Unduhan';
+import EditUnduhan from '../pages/Unduhan/Edit';
+import CreateUnduhan from '../pages/Unduhan/Tambah';
 // const SignIn = lazy(() => import('./pages/Authentication/SignIn'));
 // const SignUp = lazy(() => import('./pages/Authentication/SignUp'));
 // const Calendar = lazy(() => import('./pages/Calendar'));
@@ -113,7 +116,8 @@ const coreRoutes = [
     path: '/alumni/tambah',
     title: 'Alumni',
     component: PostAlumni,
-  }, {
+  },
+  {
     path: '/struktur',
     title: 'Struktur Organisasi',
     component: StrukturOrganisasi,
@@ -122,7 +126,8 @@ const coreRoutes = [
     path: '/struktur/:id',
     title: 'Struktur Organisasi',
     component: EditStrukturOrganisasi,
-  }, {
+  },
+  {
     path: '/struktur/tambah',
     title: 'Struktur Organisasi',
     component: CreateStrukturOrganisasi,
@@ -226,11 +231,13 @@ const coreRoutes = [
     path: '/kalender',
     title: 'Kalender Akademik',
     component: KalenderAkademikTable,
-  }, {
+  },
+  {
     path: '/kalender/:id',
     title: 'Kalender Akademik',
     component: EditKalenderAkademik,
-  }, {
+  },
+  {
     path: '/kalender/tambah',
     title: 'Kalender Akademik',
     component: CreateKalenderAkademik,
@@ -239,24 +246,43 @@ const coreRoutes = [
     path: '/silabus',
     title: 'Silabus dan Materi Ajar',
     component: SilabusTable,
-  }, {
+  },
+  {
     path: '/silabus/:id',
     title: 'Silabus dan Materi Ajar',
     component: EditSilabus,
-  }, {
+  },
+  {
     path: '/silabus/tambah',
     title: 'Silabus dan Materi Ajar',
     component: CreateSilabus,
   },
   {
+    path: '/unduhan',
+    title: 'Direktori File',
+    component: UnduhanTable,
+  },
+  {
+    path: '/unduhan/:id',
+    title: 'Direktori File',
+    component: EditUnduhan,
+  },
+  {
+    path: '/unduhan/tambah',
+    title: 'Direktori File',
+    component: CreateUnduhan,
+  },
+  {
     path: '/prestasi-guru',
     title: 'Prestasi Guru',
     component: PrestasiGuruTable,
-  }, {
+  },
+  {
     path: '/prestasi-guru/:id',
     title: 'Prestasi Guru',
     component: EditPrestasiGuru,
-  }, {
+  },
+  {
     path: '/prestasi-guru/tambah',
     title: 'Prestasi Guru',
     component: CreatePrestasiGuru,

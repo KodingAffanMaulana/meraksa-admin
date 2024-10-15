@@ -55,14 +55,22 @@ const CreateSilabus = () => {
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
-      <div className='justify-between flex items-center pb-10'>
-        <div className='flex justify-center text-2xl font-bold'>Tambah Silabus
+      <div className="justify-between flex items-center pb-10">
+        <div className="flex justify-center text-2xl font-bold">
+          Tambah Silabus
         </div>
-        <Link to="/silabus" className='rounded-lg border text-white py-2 px-5 bg-blue-500'>Kembali</Link>
+        <Link
+          to="/silabus"
+          className="rounded-lg border text-white py-2 px-5 bg-blue-500"
+        >
+          Kembali
+        </Link>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block text-black dark:text-white mb-2 font-semibold">Title</label>
+          <label className="block text-black dark:text-white mb-2 font-semibold">
+            Nama
+          </label>
           <input
             type="text"
             value={title}
@@ -73,7 +81,9 @@ const CreateSilabus = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-black dark:text-white mb-2 font-semibold">Tahun</label>
+          <label className="block text-black dark:text-white mb-2 font-semibold">
+            Tahun
+          </label>
           <input
             type="text"
             value={tahun}
@@ -84,7 +94,9 @@ const CreateSilabus = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-black dark:text-white mb-2 font-semibold">Upload File</label>
+          <label className="block text-black dark:text-white mb-2 font-semibold">
+            Upload File
+          </label>
           <div
             id="FileUpload"
             className="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5"
@@ -101,7 +113,8 @@ const CreateSilabus = () => {
                 <p className="mb-4 text-sm text-gray-700">{file.name}</p>
               )}
               <p>
-                <span className="text-primary">Click to upload</span> or update file
+                <span className="text-primary">Click to upload</span> or update
+                file
               </p>
               <p className="mt-1.5">PDF, DOC, DOCX</p>
             </div>
@@ -111,7 +124,7 @@ const CreateSilabus = () => {
           type="submit"
           className="w-full py-3 px-6 rounded bg-primary text-white hover:bg-opacity-90 transition duration-300"
         >
-          Tambah Silabus
+          Submit
         </button>
       </form>
     </div>

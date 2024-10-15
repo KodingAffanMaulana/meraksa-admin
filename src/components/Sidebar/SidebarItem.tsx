@@ -1,4 +1,4 @@
-import ImageProfileIcon from "../../images/ImageProfileIcon";
+import ImageProfileIcon from '../../images/ImageProfileIcon';
 
 export const sidebarItems = [
   {
@@ -30,23 +30,33 @@ export const sidebarItems = [
     route: '/alumni',
     name: 'Alumni',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
+    route: '/unduhan',
+    name: 'Direktori File',
+    icon: ImageProfileIcon,
+  },
+  {
     route: '/struktur',
     name: 'Daftar Guru',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/progja',
     name: 'Program Kerja',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/galeri-foto',
     name: 'Galeri Foto',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/galeri-video',
     name: 'Galeri Video',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/prestasi',
     name: 'Prestasi Siswa',
     icon: ImageProfileIcon,
@@ -56,31 +66,38 @@ export const sidebarItems = [
     route: '/kepala-sekolah',
     name: 'Kepala Sekolah',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/komite-sekolah',
     name: 'Komite Sekolah',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/ekstrakurikuler',
     name: 'Ekstrakurikuler',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/siswa',
     name: 'Direktori Siswa',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/kalender',
     name: 'Kalender Akademik',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/kondisi-siswa',
     name: 'Kondisi Siswa',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/silabus',
     name: 'Silabus dan Materi Ajar',
     icon: ImageProfileIcon,
-  }, {
+  },
+  {
     route: '/prestasi-guru',
     name: 'Prestasi Guru',
     icon: ImageProfileIcon,

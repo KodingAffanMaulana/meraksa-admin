@@ -1,45 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../../common/Loader';
 import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 
-const EditSilabus = () => {
-  const [tahun, setTahun] = useState('');
+const CreateUnduhan = () => {
   const [title, setTitle] = useState('');
   const [file, setFile] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { id } = useParams();
   const token = localStorage.getItem('token');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/api/silabus/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        );
-        const data = await response.json();
-        if (data.status === 200) {
-          setTahun(data.data.tahun);
-          setTitle(data.data.title);
-          setFile(data.data.file);
-        } else {
-          console.error('Failed to fetch silabus data');
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching silabus data:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [id, token]);
 
   const handleFileChange = (e: any) => {
     setFile(e.target.files[0]);
@@ -50,14 +19,13 @@ const EditSilabus = () => {
     setLoading(true);
 
     const formData = new FormData();
-    formData.append('tahun', tahun);
     formData.append('title', title);
-    if (file instanceof File) {
+    if (file) {
       formData.append('file', file);
     }
 
-    fetch(`${import.meta.env.VITE_BASE_URL}/api/silabus/${id}`, {
-      method: 'PUT',
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/unduhan`, {
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -66,17 +34,17 @@ const EditSilabus = () => {
       .then(checkTokenExpiration)
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === 200) {
-          alert('Silabus berhasil diperbarui!');
-          navigate('/silabus');
+        if (data.status === 201) {
+          alert('Silabus berhasil ditambahkan!');
+          navigate('/unduhan');
         } else {
-          alert('Terjadi kesalahan saat memperbarui silabus');
+          alert('Terjadi kesalahan saat menambahkan data');
         }
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error updating silabus:', error);
-        alert('Terjadi kesalahan saat memperbarui silabus');
+        console.error('Error creating data:', error);
+        alert('Terjadi kesalahan saat menambahkan data');
         setLoading(false);
       });
   };
@@ -87,29 +55,16 @@ const EditSilabus = () => {
     <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
       <div className="justify-between flex items-center pb-10">
         <div className="flex justify-center text-2xl font-bold">
-          Edit Silabus
+          Tambah Direktori File
         </div>
         <Link
-          to="/silabus"
+          to="/unduhan"
           className="rounded-lg border text-white py-2 px-5 bg-blue-500"
         >
           Kembali
         </Link>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-black dark:text-white mb-2 font-semibold">
-            Tahun
-          </label>
-          <input
-            type="text"
-            value={tahun}
-            onChange={(e) => setTahun(e.target.value)}
-            className="w-full px-4 py-2 border rounded-md dark:bg-meta-4 dark:border-strokedark"
-            placeholder="Masukkan tahun"
-            required
-          />
-        </div>
         <div className="mb-4">
           <label className="block text-black dark:text-white mb-2 font-semibold">
             Nama
@@ -127,19 +82,6 @@ const EditSilabus = () => {
           <label className="block text-black dark:text-white mb-2 font-semibold">
             Upload File
           </label>
-          {file &&
-            (typeof file === 'string' ? (
-              <a
-                href={file}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 underline"
-              >
-                Download File Saat Ini
-              </a>
-            ) : (
-              <p className="mb-4 text-sm text-gray-700">{file.name}</p>
-            ))}
           <div
             id="FileUpload"
             className="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5"
@@ -149,8 +91,12 @@ const EditSilabus = () => {
               accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               className="absolute inset-0 z-50 m-0 h-full w-full cursor-pointer p-0 opacity-0 outline-none"
               onChange={handleFileChange}
+              required
             />
             <div className="flex flex-col items-center justify-center space-y-3">
+              {file && (
+                <p className="mb-4 text-sm text-gray-700">{file.name}</p>
+              )}
               <p>
                 <span className="text-primary">Click to upload</span> or update
                 file
@@ -163,11 +109,11 @@ const EditSilabus = () => {
           type="submit"
           className="w-full py-3 px-6 rounded bg-primary text-white hover:bg-opacity-90 transition duration-300"
         >
-          Update Silabus
+          Submit
         </button>
       </form>
     </div>
   );
 };
 
-export default EditSilabus;
+export default CreateUnduhan;

@@ -3,8 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loader from '../../common/Loader';
 import { checkTokenExpiration } from '../../common/checkTokenExpiration';
 
-const EditSilabus = () => {
-  const [tahun, setTahun] = useState('');
+const EditUnduhan = () => {
   const [title, setTitle] = useState('');
   const [file, setFile] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -16,7 +15,7 @@ const EditSilabus = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/api/silabus/${id}`,
+          `${import.meta.env.VITE_BASE_URL}/api/unduhan/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -25,15 +24,14 @@ const EditSilabus = () => {
         );
         const data = await response.json();
         if (data.status === 200) {
-          setTahun(data.data.tahun);
           setTitle(data.data.title);
           setFile(data.data.file);
         } else {
-          console.error('Failed to fetch silabus data');
+          console.error('Failed to fetch unduhan data');
         }
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching silabus data:', error);
+        console.error('Error fetching unduhan data:', error);
         setLoading(false);
       }
     };
@@ -50,13 +48,12 @@ const EditSilabus = () => {
     setLoading(true);
 
     const formData = new FormData();
-    formData.append('tahun', tahun);
     formData.append('title', title);
     if (file instanceof File) {
       formData.append('file', file);
     }
 
-    fetch(`${import.meta.env.VITE_BASE_URL}/api/silabus/${id}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/unduhan/${id}`, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -67,16 +64,16 @@ const EditSilabus = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 200) {
-          alert('Silabus berhasil diperbarui!');
-          navigate('/silabus');
+          alert('Data berhasil diperbarui!');
+          navigate('/unduhan');
         } else {
-          alert('Terjadi kesalahan saat memperbarui silabus');
+          alert('Terjadi kesalahan saat memperbarui');
         }
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error updating silabus:', error);
-        alert('Terjadi kesalahan saat memperbarui silabus');
+        console.error('Error updating unduhan:', error);
+        alert('Terjadi kesalahan saat memperbarui data');
         setLoading(false);
       });
   };
@@ -87,29 +84,16 @@ const EditSilabus = () => {
     <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
       <div className="justify-between flex items-center pb-10">
         <div className="flex justify-center text-2xl font-bold">
-          Edit Silabus
+          Edit Direktori File
         </div>
         <Link
-          to="/silabus"
+          to="/unduhan"
           className="rounded-lg border text-white py-2 px-5 bg-blue-500"
         >
           Kembali
         </Link>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-black dark:text-white mb-2 font-semibold">
-            Tahun
-          </label>
-          <input
-            type="text"
-            value={tahun}
-            onChange={(e) => setTahun(e.target.value)}
-            className="w-full px-4 py-2 border rounded-md dark:bg-meta-4 dark:border-strokedark"
-            placeholder="Masukkan tahun"
-            required
-          />
-        </div>
         <div className="mb-4">
           <label className="block text-black dark:text-white mb-2 font-semibold">
             Nama
@@ -170,4 +154,4 @@ const EditSilabus = () => {
   );
 };
 
-export default EditSilabus;
+export default EditUnduhan;

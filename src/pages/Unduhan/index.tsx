@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 
-const SilabusTable = () => {
+const UnduhanTable = () => {
   const [data, setData] = useState([]);
   const [sortOrder, setSortOrder] = useState('asc');
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const SilabusTable = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/api/silabus`,
+        `${import.meta.env.VITE_BASE_URL}/api/unduhan`,
       );
       const result = await response.json();
       if (result.status === 200) {
@@ -38,7 +38,7 @@ const SilabusTable = () => {
   };
 
   const handleEdit = (id: any) => {
-    navigate(`/silabus/${id}`);
+    navigate(`/unduhan/${id}`);
   };
 
   const token = localStorage.getItem('token');
@@ -49,7 +49,7 @@ const SilabusTable = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/api/silabus/${id}`,
+          `${import.meta.env.VITE_BASE_URL}/api/unduhan/${id}`,
           {
             method: 'DELETE',
             headers: {
@@ -72,13 +72,13 @@ const SilabusTable = () => {
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-      <Breadcrumb pageName="Silabus dan Materi Ajar" />
+      <Breadcrumb pageName="Direktori File" />
       <div className="flex flex-col-reverse md:flex-row items-end md:items-center justify-end gap-2">
         <Link
-          to="/silabus/tambah"
+          to="/unduhan/tambah"
           className="rounded-lg border text-white py-2 px-3 bg-green-400 hover:bg-green-500"
         >
-          Tambah Silabus
+          Tambah File
         </Link>
 
         <div className="flex justify-end">
@@ -104,11 +104,8 @@ const SilabusTable = () => {
               <th className="min-w-[50px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                 No
               </th>
-              <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
-                Tahun
-              </th>
               <th className="min-w-[250px] py-4 px-4 font-medium text-black dark:text-white">
-                Nama Silabus
+                Silabus
               </th>
               <th className="min-w-[250px] py-4 px-4 font-medium text-black dark:text-white">
                 File
@@ -123,9 +120,6 @@ const SilabusTable = () => {
               <tr key={item.id}>
                 <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                   {i + 1}
-                </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  {item.tahun}
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   {item.title}
@@ -207,4 +201,4 @@ const SilabusTable = () => {
   );
 };
 
-export default SilabusTable;
+export default UnduhanTable;
