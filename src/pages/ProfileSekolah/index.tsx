@@ -124,13 +124,22 @@ const ProfileSekolah = () => {
       <div className="reset-tw">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Informasi Sekolah</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Informasi Sekolah
+            </label>
             <CKEditor
               editor={ClassicEditor}
               data={profil}
               config={{
                 toolbar: [
-                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                  'heading',
+                  'bold',
+                  'italic',
+                  'link',
+                  'bulletedList',
+                  'numberedList',
+                  'undo',
+                  'redo',
                 ],
               }}
               onChange={(event, editor) => {
@@ -138,16 +147,24 @@ const ProfileSekolah = () => {
                 setProfil(data);
               }}
             />
-
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Visi Sekolah</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Visi Sekolah
+            </label>
             <CKEditor
               editor={ClassicEditor}
               data={visi}
               config={{
                 toolbar: [
-                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                  'heading',
+                  'bold',
+                  'italic',
+                  'link',
+                  'bulletedList',
+                  'numberedList',
+                  'undo',
+                  'redo',
                 ],
               }}
               onChange={(event, editor) => {
@@ -157,13 +174,22 @@ const ProfileSekolah = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Misi Sekolah</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Misi Sekolah
+            </label>
             <CKEditor
               editor={ClassicEditor}
               data={misi}
               config={{
                 toolbar: [
-                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                  'heading',
+                  'bold',
+                  'italic',
+                  'link',
+                  'bulletedList',
+                  'numberedList',
+                  'undo',
+                  'redo',
                 ],
               }}
               onChange={(event, editor) => {
@@ -173,13 +199,22 @@ const ProfileSekolah = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Sambutan Kepala Sekolah</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Sambutan Kepala Sekolah
+            </label>
             <CKEditor
               editor={ClassicEditor}
               data={sambutan}
               config={{
                 toolbar: [
-                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                  'heading',
+                  'bold',
+                  'italic',
+                  'link',
+                  'bulletedList',
+                  'numberedList',
+                  'undo',
+                  'redo',
                 ],
               }}
               onChange={(event, editor) => {
@@ -189,30 +224,22 @@ const ProfileSekolah = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Profile</label>
-            <CKEditor
-              editor={ClassicEditor}
-              data={profil}
-              config={{
-                toolbar: [
-                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
-                ],
-              }}
-              onChange={(event, editor) => {
-                const data = editor.getData();
-                setProfil(data);
-              }}
-            />
-
-          </div>
-          <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Email</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Email
+            </label>
             <CKEditor
               editor={ClassicEditor}
               data={email}
               config={{
                 toolbar: [
-                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                  'heading',
+                  'bold',
+                  'italic',
+                  'link',
+                  'bulletedList',
+                  'numberedList',
+                  'undo',
+                  'redo',
                 ],
               }}
               onChange={(event, editor) => {
@@ -220,16 +247,24 @@ const ProfileSekolah = () => {
                 setEmail(data);
               }}
             />
-
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Telepon Sekolah</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Telepon Sekolah
+            </label>
             <CKEditor
               editor={ClassicEditor}
               data={telepon}
               config={{
                 toolbar: [
-                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                  'heading',
+                  'bold',
+                  'italic',
+                  'link',
+                  'bulletedList',
+                  'numberedList',
+                  'undo',
+                  'redo',
                 ],
               }}
               onChange={(event, editor) => {
@@ -239,13 +274,22 @@ const ProfileSekolah = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">NPSN</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              NPSN
+            </label>
             <CKEditor
               editor={ClassicEditor}
               data={npsn}
               config={{
                 toolbar: [
-                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                  'heading',
+                  'bold',
+                  'italic',
+                  'link',
+                  'bulletedList',
+                  'numberedList',
+                  'undo',
+                  'redo',
                 ],
               }}
               onChange={(event, editor) => {
@@ -253,16 +297,24 @@ const ProfileSekolah = () => {
                 setNpsn(data);
               }}
             />
-
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Alamat</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Alamat
+            </label>
             <CKEditor
               editor={ClassicEditor}
               data={alamat}
               config={{
                 toolbar: [
-                  'heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo'
+                  'heading',
+                  'bold',
+                  'italic',
+                  'link',
+                  'bulletedList',
+                  'numberedList',
+                  'undo',
+                  'redo',
                 ],
               }}
               onChange={(event, editor) => {
@@ -270,45 +322,80 @@ const ProfileSekolah = () => {
                 setAlamat(data);
               }}
             />
-
           </div>
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Url Admin</label>
-            <input type="text" value={urlAdmin} className='rounded border px-3 w-full py-2' onChange={(e) => {
-              setUrlAdmin(e.target.value);
-            }} />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Facebook</label>
-            <input type="text" value={facebook} className='rounded border px-3 w-full py-2' onChange={(e) => {
-              setFacebook(e.target.value);
-            }} />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Youtube</label>
-            <input type="text" value={youtube} className='rounded border px-3 w-full py-2' onChange={(e) => {
-              setYoutube(e.target.value);
-            }} />
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Url Admin
+            </label>
+            <input
+              type="text"
+              value={urlAdmin}
+              className="rounded border px-3 w-full py-2"
+              onChange={(e) => {
+                setUrlAdmin(e.target.value);
+              }}
+            />
           </div>
 
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Instagram</label>
-            <input type="text" value={instagram} className='rounded border px-3 w-full py-2' onChange={(e) => {
-              setInstagram(e.target.value);
-            }} />
-          </div>
-          <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Twitter/X</label>
-            <input type="text" value={xmedsos} className='rounded border px-3 w-full py-2' onChange={(e) => {
-              setXmedsos(e.target.value);
-            }} />
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Facebook
+            </label>
+            <input
+              type="text"
+              value={facebook}
+              className="rounded border px-3 w-full py-2"
+              onChange={(e) => {
+                setFacebook(e.target.value);
+              }}
+            />
           </div>
 
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Youtube
+            </label>
+            <input
+              type="text"
+              value={youtube}
+              className="rounded border px-3 w-full py-2"
+              onChange={(e) => {
+                setYoutube(e.target.value);
+              }}
+            />
+          </div>
 
           <div className="mb-4">
-            <label className="block text-black dark:text-white mb-2 font-semibold">Gambar Utama</label>
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Instagram
+            </label>
+            <input
+              type="text"
+              value={instagram}
+              className="rounded border px-3 w-full py-2"
+              onChange={(e) => {
+                setInstagram(e.target.value);
+              }}
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Twitter/X
+            </label>
+            <input
+              type="text"
+              value={xmedsos}
+              className="rounded border px-3 w-full py-2"
+              onChange={(e) => {
+                setXmedsos(e.target.value);
+              }}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-black dark:text-white mb-2 font-semibold">
+              Gambar Utama
+            </label>
             <div
               id="FileUpload"
               className="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5"
@@ -320,15 +407,23 @@ const ProfileSekolah = () => {
                 onChange={handleFileChange}
               />
               <div className="flex flex-col items-center justify-center space-y-3">
-                {image && (
-                  typeof image === 'string' ? (
-                    <img src={image} alt="Sejarah Image" className="mb-4 max-h-40" />
+                {image &&
+                  (typeof image === 'string' ? (
+                    <img
+                      src={image}
+                      alt="Sejarah Image"
+                      className="mb-4 max-h-40"
+                    />
                   ) : (
-                    <img src={URL.createObjectURL(image)} alt="Sejarah Image" className="mb-4 max-h-40" />
-                  )
-                )}
+                    <img
+                      src={URL.createObjectURL(image)}
+                      alt="Sejarah Image"
+                      className="mb-4 max-h-40"
+                    />
+                  ))}
                 <p>
-                  <span className="text-primary">Click to upload</span> or update image
+                  <span className="text-primary">Click to upload</span> or
+                  update image
                 </p>
                 <p className="mt-1.5">SVG, PNG, JPG or GIF</p>
               </div>
